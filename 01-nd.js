@@ -69,42 +69,44 @@ if (a <= b) {
 console.log('-------------------------');
 const kintamasisVienas = 'Laba diena';
 const kintamasisDu = 'Labas vakarelis';
-console.log(kintamasisVienas.length);
-console.log(kintamasisDu.length);
+const ilgisVienas = kintamasisVienas.length;
+const ilgisDu = kintamasisDu.length;
+console.log(ilgisVienas);
+console.log(ilgisDu);
 
 // [3]
 console.log('-------------------------');
-if (kintamasisVienas.length > kintamasisDu.length) {
+if (ilgisVienas > ilgisDu) {
     console.log('Pomidoras');
 } else {
     console.log('Bandykite dar karta');
 }
 
-if (kintamasisVienas.length < kintamasisDu.length) {
+if (ilgisVienas < ilgisDu) {
     console.log('Pomidoras');
 } else {
     console.log('Bandykite dar karta');
 }
 
-if (kintamasisVienas.length === kintamasisDu.length) {
+if (ilgisVienas === ilgisDu) {
     console.log('Pomidoras');
 } else {
     console.log('Bandykite dar karta');
 }
 
-if (kintamasisVienas.length !== kintamasisDu.length) {
+if (ilgisVienas !== ilgisDu) {
     console.log('Pomidoras');
 } else {
     console.log('Bandykite dar karta');
 }
 
-if (kintamasisVienas.length >= kintamasisDu.length) {
+if (ilgisVienas >= ilgisDu) {
     console.log('Pomidoras');
 } else {
     console.log('Bandykite dar karta');
 }
 
-if (kintamasisVienas.length <= kintamasisDu.length) {
+if (ilgisVienas <= ilgisDu) {
     console.log('Pomidoras');
 } else {
     console.log('Bandykite dar karta');
@@ -112,11 +114,50 @@ if (kintamasisVienas.length <= kintamasisDu.length) {
 
 // [4]
 console.log('-------------------------');
-const sarasas = ['Pirmas', 'Antras', 'Trecias', 'Ketvirtas', 'Penktas'];
-console.log(sarasas[0].length); 
-console.log(sarasas[1].length); 
-console.log(sarasas[2].length); 
-console.log(sarasas[3].length); 
-console.log(sarasas[4].length); 
+const sarasas = ['Pirmasis', 'Antroji'];
+
+const pirmas = sarasas[0].length;
+const antras = sarasas[1].length;
+
+
+console.log(pirmas); 
+console.log(antras); 
+ 
 
 // [5]
+console.log('-------------------------');
+if (pirmas > antras) {
+    console.log('Pomidoras');
+} else {
+    console.log('Bandykite dar karta');
+}
+
+if (pirmas < antras) {
+    console.log('Pomidoras');
+} else {
+    console.log('Bandykite dar karta');
+}
+
+if (pirmas === antras) {
+    console.log('Pomidoras');
+} else {
+    console.log('Bandykite dar karta');
+}
+
+if (pirmas !== antras) {
+    console.log('Pomidoras');
+} else {
+    console.log('Bandykite dar karta');
+}
+
+if (pirmas >= antras) {
+    console.log('Pomidoras');
+} else {
+    console.log('Bandykite dar karta');
+}
+
+if (pirmas <= antras) {
+    console.log('Pomidoras');
+} else {
+    console.log('Bandykite dar karta');
+}

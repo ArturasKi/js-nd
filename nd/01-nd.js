@@ -172,7 +172,7 @@ const m = 20;
 
 if (m > 0) {
     console.log('Geras')
-} else {
+} if (m < 0) {
     console.log('Blogas');
 }
 
@@ -188,10 +188,24 @@ let n = geltona;
 
 if (n === 3) {
     console.log('Stop');
-} else if (n === 2) {
+} if (n === 2) {
     console.log('Palaukite');
-} else if (n === 1) {
+} if (n === 1) {
     console.log('Eiti');
 }
 
+console.log('-------------------------');
+
+// 3. Gintautas planuoja persikraustyti į naujus namus ir jam reikia sudėti visas turimas knygas į dėžes. Gintautas turi d dėžių ir k knygų. Parašykite programą, kuri apskaičiuotų, ar Gintauto turimos knygos tilps į dėžes, jei į vieną dėžę telpa po n knygų. Pasitikrinkite: Kai d=2, k=8, n=5 tuomet ekrane turi būti rodomas pranešimas: Knygos telpa į dėžes; kai d=3, k=18, n=5 tuomet ekrane turi būti rodomas pranešimas: Knygos netelpa į dėžes.
+
+// 4. Duoti du sveikieji skaičiai a ir b. Parašykite programą, kuri didesnį skaičių pamažintu vienetu, o mažesnį padidintu vienetu.
+
+let aa = 5;
+let bb = 2;
+
+if (aa > bb) {
+    console.log(aa - 1), console.log(bb + 1);
+} else if (aa < bb) {
+    console.log(aa + 1), console.log(bb - 1);
+} 
 console.log('-------------------------');

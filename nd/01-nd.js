@@ -164,15 +164,34 @@ if (pirmas <= antras) {
 }
 console.log('-------------------------');
 
-/* PAPILDOMI UZDAVINIAI IS KESTUCIO PAULAVICIAUS
+// PAPILDOMI UZDAVINIAI IS KESTUCIO PAULAVICIAUS
 
-1. Žinomas skaičius n. Parašykite programą, kuri nustatytų ar skaičius yra blogas ar geras? Neigiamas – „Blogas“, teigiamas „Geras“. Pasitikrinkite: Kai n = 20, turėtume gauti: Skaičius geras 
-*/
+// 1. Žinomas skaičius n. Parašykite programą, kuri nustatytų ar skaičius yra blogas ar geras? Neigiamas – „Blogas“, teigiamas „Geras“. Pasitikrinkite: Kai n = 20, turėtume gauti: Skaičius geras. 
 
-const n = 20;
+const m = 20;
 
-if (n > 0) {
+if (m > 0) {
     console.log('Geras')
 } else {
     console.log('Blogas');
 }
+
+console.log('-------------------------');
+
+// 2. Mokinys eina gatve ir prieina sankryžą reguliuojamą šviesoforu. Sudarykite programą, kuri nustatytu, kaip turi pasielgti mokinys? Žinome šviesoforo spalvos kodą n, 1-žalia, 2-geltona, 3-raudona. Pasitikrinkite: Kai n= 2, turėtume gauti: Palaukite.
+
+const zalia = 1;
+const geltona = 2;
+const raudona = 3;
+
+let n = 2;
+
+if (n === 3) {
+    console.log('Stop');
+} else if (n === 2) {
+    console.log('Palaukite');
+} else if (n === 1) {
+    console.log('Eiti');
+}
+
+console.log('-------------------------');

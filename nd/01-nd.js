@@ -241,8 +241,15 @@ if (nDegtuku % 3 === 0) {
 } else {
     console.log('Trikampio sudelioti negalima');
 } 
+console.log('-------------------------');
 
+// 7. Parašykite programą, kuri žinant mėnesio numerį n atspausdintų to mėnesio dienų kiekį d. (tarkime, kad metai yra paprastieji) (pvz. n=5, ats. d=31; n=2 ats. d=28)
 
+const menesiai = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+let n1 = 2;
+console.log('Menesio dienu kiekis: ', menesiai[--n1]);
+console.log('-------------------------');
 
 
 

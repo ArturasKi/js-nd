@@ -251,6 +251,16 @@ let n1 = 2;
 console.log('Menesio dienu kiekis: ', menesiai[--n1]);
 console.log('-------------------------');
 
+// 8. Du broliai nesutaria, kuriam tvarkyti kambarį. Jie meta kauliuką. Jei iškrenta skaičius 1, 3 arba 5 – kambarį tvarko jaunėlis, jei 2, 4 arba 6 – vyresnėlis. Parašykite programą, kuri įvedus iškritusį skaičių k, ekrane rodytų pranešimą „Kambarį tvarkys jaunėlis“, arba „Kambarį tvarkys vyresnėlis“. Pasitikrinkite: kai k = 1, ekrane turi būti: Kambarį tvarkys jaunėlis. Kai k = 4, ekrane turi būti: Kambarį tvarkys vyresnėlis.
+
+let kauliukas = 4;
+
+if (kauliukas % 2 === 0) {
+    console.log('Kambari tvarkys vyresnelis');
+} else {
+    console.log('Kambari tvarkys jaunelis');
+}
+console.log('-------------------------');
 
 
 

@@ -1,4 +1,5 @@
-/* Lyginant, jei rezultatas tenkina palyginimo sąlygą, tai į console išvesti žodį “Pomidoras”, o jei sąlyga nėra tenkinama, išvesti sakinį “Bandykite kitą kartą.”.
+/* KINTAMUJU PALYGINIMAS
+Lyginant, jei rezultatas tenkina palyginimo sąlygą, tai į console išvesti žodį “Pomidoras”, o jei sąlyga nėra tenkinama, išvesti sakinį “Bandykite kitą kartą.”.
 
 1.Tarpusavyje palyginti skaičiaus tipo kintamuosius:
 a) kuris didesnis
@@ -160,4 +161,18 @@ if (pirmas <= antras) {
     console.log('Pomidoras');
 } else {
     console.log('Bandykite dar karta');
+}
+console.log('-------------------------');
+
+/* PAPILDOMI UZDAVINIAI IS KESTUCIO PAULAVICIAUS
+
+1. Žinomas skaičius n. Parašykite programą, kuri nustatytų ar skaičius yra blogas ar geras? Neigiamas – „Blogas“, teigiamas „Geras“. Pasitikrinkite: Kai n = 20, turėtume gauti: Skaičius geras 
+*/
+
+const n = 20;
+
+if (n > 0) {
+    console.log('Geras')
+} else {
+    console.log('Blogas');
 }

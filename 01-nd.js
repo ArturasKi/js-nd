@@ -109,3 +109,12 @@ if (kintamasisVienas.length <= kintamasisDu.length) {
 } else {
     console.log('Bandykite dar karta');
 }
+
+// [4]
+console.log('-------------------------');
+const sarasas = ['Pirmas', 'Antras', 'Trecias', 'Ketvirtas', 'Penktas'];
+console.log(sarasas[0].length); 
+console.log(sarasas[1].length); 
+console.log(sarasas[2].length); 
+console.log(sarasas[3].length); 
+console.log(sarasas[4].length); 

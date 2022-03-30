@@ -72,37 +72,39 @@ const kintamasisDu = 'Labas vakarelis';
 console.log(kintamasisVienas.length);
 console.log(kintamasisDu.length);
 
-if (kintamasisVienas > kintamasisDu) {
+// [3]
+console.log('-------------------------');
+if (kintamasisVienas.length > kintamasisDu.length) {
     console.log('Pomidoras');
 } else {
     console.log('Bandykite dar karta');
 }
 
-if (kintamasisVienas < kintamasisDu) {
+if (kintamasisVienas.length < kintamasisDu.length) {
     console.log('Pomidoras');
 } else {
     console.log('Bandykite dar karta');
 }
 
-if (kintamasisVienas === kintamasisDu) {
+if (kintamasisVienas.length === kintamasisDu.length) {
     console.log('Pomidoras');
 } else {
     console.log('Bandykite dar karta');
 }
 
-if (kintamasisVienas !== kintamasisDu) {
+if (kintamasisVienas.length !== kintamasisDu.length) {
     console.log('Pomidoras');
 } else {
     console.log('Bandykite dar karta');
 }
 
-if (kintamasisVienas >= kintamasisDu) {
+if (kintamasisVienas.length >= kintamasisDu.length) {
     console.log('Pomidoras');
 } else {
     console.log('Bandykite dar karta');
 }
 
-if (kintamasisVienas <= kintamasisDu) {
+if (kintamasisVienas.length <= kintamasisDu.length) {
     console.log('Pomidoras');
 } else {
     console.log('Bandykite dar karta');

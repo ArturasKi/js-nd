@@ -118,3 +118,5 @@ console.log(sarasas[1].length);
 console.log(sarasas[2].length); 
 console.log(sarasas[3].length); 
 console.log(sarasas[4].length); 
+
+// [5]

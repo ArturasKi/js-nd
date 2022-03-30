@@ -198,26 +198,26 @@ console.log('-------------------------');
 
 // 3. Gintautas planuoja persikraustyti į naujus namus ir jam reikia sudėti visas turimas knygas į dėžes. Gintautas turi d dėžių ir k knygų. Parašykite programą, kuri apskaičiuotų, ar Gintauto turimos knygos tilps į dėžes, jei į vieną dėžę telpa po n knygų. Pasitikrinkite: Kai d=2, k=8, n=5 tuomet ekrane turi būti rodomas pranešimas: Knygos telpa į dėžes; kai d=3, k=18, n=5 tuomet ekrane turi būti rodomas pranešimas: Knygos netelpa į dėžes.
 
-const d = 2; // deziu skaicius
+const d = 4; // deziu skaicius
 const k = 18; // visas knygu skaicius
 const nn = 5; // knygu skaicius telpantis i deze
 
 if (d * nn >= k) {
     console.log('Knygos telpa i dezes');
-} if (d * nn < k) {
+} else {
     console.log('Knygos netelpa i dezes');
 }
 console.log('-------------------------');
 
 // 4. Duoti du sveikieji skaičiai a ir b. Parašykite programą, kuri didesnį skaičių pamažintu vienetu, o mažesnį padidintu vienetu.
 
-const aa = 5;
-const bb = 2;
+let aa = 5;
+let bb = 7;
 
 if (aa > bb) {
-    console.log(aa - 1), console.log(bb + 1);
+    console.log(--aa, ++bb);
 } else if (aa < bb) {
-    console.log(aa + 1), console.log(bb - 1);
+    console.log(++aa, --bb);
 } 
 console.log('-------------------------');
 
@@ -231,6 +231,19 @@ const mm = cc % pp; // centu likutis
 
 console.log(`Saulius nusipirks ${kk} porcijas, liks centu ${mm}.`);
 console.log('-------------------------');
+
+// 6. Yra n degtukų. Parašykite programą, kuri nustatytų, ar iš tų degtukų galima sudėti lygiakraštį trikampį. Dėliojamai figūrai turi būti panaudoti visi degtukai. Degtukų laužyti negalima. Pasitikrinkite: jei n = 6, turi būti: Trikampį sudėlioti galima. jei n = 4, turi būti: Trikampį sudėlioti negalima.
+
+let nDegtuku = 6;
+
+if (nDegtuku % 3 === 0) {
+    console.log('Trikampi sudelioti galima');
+} else {
+    console.log('Trikampio sudelioti negalima');
+} 
+
+
+
 
 
 

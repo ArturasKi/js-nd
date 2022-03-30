@@ -184,7 +184,7 @@ const zalia = 1;
 const geltona = 2;
 const raudona = 3;
 
-let n = 2;
+let n = geltona;
 
 if (n === 3) {
     console.log('Stop');

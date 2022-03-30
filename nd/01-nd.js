@@ -207,7 +207,7 @@ if (d * nn >= k) {
 } if (d * nn < k) {
     console.log('Knygos netelpa i dezes');
 }
-
+console.log('-------------------------');
 
 // 4. Duoti du sveikieji skaičiai a ir b. Parašykite programą, kuri didesnį skaičių pamažintu vienetu, o mažesnį padidintu vienetu.
 
@@ -220,3 +220,17 @@ if (aa > bb) {
     console.log(aa + 1), console.log(bb - 1);
 } 
 console.log('-------------------------');
+
+// 5. Saulius sutaupė c centų ir už juos nusprendė nusipirkti ledų. Parduotuvėje porcija ledų kainuoja p centų. Parašykite programą, kuri suranda, kiek porcijų ledų k nusipirks Saulius ir kiek centų m dar liks. Pasitikrinkite Kai c=50, p=20, turi būti : Saulius nusipirks 2 porcijas, liks centų 10. Gali prireikti panaudoti Math.floor() funkciją.
+
+const cc = 50; // sutaupyta Sauliaus suma
+const pp = 20; // vienos ledu porcijos kaina
+
+const kk = (Math.floor(cc / pp)); // nupirktu porciju skaicius
+const mm = cc % pp; // centu likutis
+
+console.log(`Saulius nusipirks ${kk} porcijas, liks centu ${mm}.`);
+console.log('-------------------------');
+
+
+

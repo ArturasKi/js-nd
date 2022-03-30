@@ -198,10 +198,21 @@ console.log('-------------------------');
 
 // 3. Gintautas planuoja persikraustyti į naujus namus ir jam reikia sudėti visas turimas knygas į dėžes. Gintautas turi d dėžių ir k knygų. Parašykite programą, kuri apskaičiuotų, ar Gintauto turimos knygos tilps į dėžes, jei į vieną dėžę telpa po n knygų. Pasitikrinkite: Kai d=2, k=8, n=5 tuomet ekrane turi būti rodomas pranešimas: Knygos telpa į dėžes; kai d=3, k=18, n=5 tuomet ekrane turi būti rodomas pranešimas: Knygos netelpa į dėžes.
 
+const d = 2; // deziu skaicius
+const k = 18; // visas knygu skaicius
+const nn = 5; // knygu skaicius telpantis i deze
+
+if (d * nn >= k) {
+    console.log('Knygos telpa i dezes');
+} if (d * nn < k) {
+    console.log('Knygos netelpa i dezes');
+}
+
+
 // 4. Duoti du sveikieji skaičiai a ir b. Parašykite programą, kuri didesnį skaičių pamažintu vienetu, o mažesnį padidintu vienetu.
 
-let aa = 5;
-let bb = 2;
+const aa = 5;
+const bb = 2;
 
 if (aa > bb) {
     console.log(aa - 1), console.log(bb + 1);

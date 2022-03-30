@@ -35,55 +35,75 @@ if (a > b) {
     console.log('Bandykite dar karta');
 }
 
-console.log('-------------------------');
-const c = 45;
-const d = 31;
-
-if (c < d) {
+if (a < b) {
     console.log('Pomidoras');
 } else {
     console.log('Bandykite dar karta');
 }
 
-console.log('-------------------------');
-const e = 15;
-const f = 15;
-
-if (e == f) {
+if (a === b) {
     console.log('Pomidoras');
 } else {
     console.log('Bandykite dar karta');
 }
 
-console.log('-------------------------');
-const g = 15;
-const h = 18;
-
-if (g == h) {
+if (a !== b) {
     console.log('Pomidoras');
 } else {
     console.log('Bandykite dar karta');
 }
 
-console.log('-------------------------');
-const i = 25;
-const j = 18;
-
-if (i >= j) {
+if (a >= b) {
     console.log('Pomidoras');
 } else {
     console.log('Bandykite dar karta');
 }
 
-console.log('-------------------------');
-const k = 25;
-const l = 18;
-
-if (k <= l) {
+if (a <= b) {
     console.log('Pomidoras');
 } else {
     console.log('Bandykite dar karta');
 }
 
 // [2]
+console.log('-------------------------');
+const kintamasisVienas = 'Laba diena';
+const kintamasisDu = 'Labas vakarelis';
+console.log(kintamasisVienas.length);
+console.log(kintamasisDu.length);
 
+if (kintamasisVienas > kintamasisDu) {
+    console.log('Pomidoras');
+} else {
+    console.log('Bandykite dar karta');
+}
+
+if (kintamasisVienas < kintamasisDu) {
+    console.log('Pomidoras');
+} else {
+    console.log('Bandykite dar karta');
+}
+
+if (kintamasisVienas === kintamasisDu) {
+    console.log('Pomidoras');
+} else {
+    console.log('Bandykite dar karta');
+}
+
+if (kintamasisVienas !== kintamasisDu) {
+    console.log('Pomidoras');
+} else {
+    console.log('Bandykite dar karta');
+}
+
+if (kintamasisVienas >= kintamasisDu) {
+    console.log('Pomidoras');
+} else {
+    console.log('Bandykite dar karta');
+}
+
+if (kintamasisVienas <= kintamasisDu) {
+    console.log('Pomidoras');
+} else {
+    console.log('Bandykite dar karta');
+}

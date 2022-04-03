@@ -40,7 +40,7 @@ console.log(sumaF);
 console.log('--------------');
 
 // #2
-const abecele = ['a', 'b', 'c', 'd', 'e', 'f'];
+const abecele = 'abcdef';
 for (let i = abecele.length - 1; i >= 0; i--) {
     console.log(abecele[i]);
 }

@@ -39,3 +39,26 @@ function keliamieji(a) {
 }
 m1 = keliamieji(2022);
 console.log(m1);
+console.log('--------------')
+
+// 4. Parašyti funkciją, kuri priimtų vieną skaičių. Grąžinti skaičiaus kvadratą.
+
+function kvadratas(a) {
+    return (a * a);
+}
+const s2 = kvadratas(7);
+console.log(s2);
+console.log('--------------')
+
+// 5. Parašyti funkciją, kuri priimtų vieną skaičių, kuris turi būti didesnis už vienetą. Funkcija turi grąžinti visų skaičių sumą, nuo 1 iki įvesto skaičiaus.
+
+function suma(a) {
+    if (a > 1) {
+    let skaicius = 0
+    for (i = 1; i <= a; i++) {
+    skaicius += i;
+    } return console.log(skaicius);
+}
+}
+let s3 = suma(6);
+console.log('--------------')

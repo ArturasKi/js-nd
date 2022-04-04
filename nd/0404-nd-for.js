@@ -82,4 +82,10 @@ console.log('---------------')
 
 // 10. Keliamieji metai turi 366 dienas, paprastieji – 365. Visi metai, išskyrus šimtmečius, yra keliamieji, jie dalūs iš 4. Šimtmečių metai yra keliamieji, jeigu dalūs 400. Pvz.: 1600 metai yra keliamieji, nes dalūs iš 400, o 1700 – paprastieji. Raskite visus mūsų eros keliamuosius metus.
 
-
+let erosMetai = 0;
+for (i = 0; i <= 2022; i++) {
+    if ((erosMetai % 4 === 0) && (erosMetai % 100 !== 0) || (erosMetai % 400 === 0)) {
+    console.log(erosMetai);
+    }
+    erosMetai++;
+} 

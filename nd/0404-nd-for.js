@@ -40,6 +40,29 @@ for (i = 0; i <= 20; i++) {
     console.log(i);
     }
 }
+console.log('---------------')
+// 7. Parašykite programą, kuri atspausdintų įvesto skaičiaus daugybos lentelę nuo 1 iki 10.
 
-// 7. 
+let skaicius = 7;
+let daugiklis = 0;
+for (i = 1; i <= 10; i++) {
+    daugiklis++;
+    sandauga = skaicius * daugiklis;
+    console.log(sandauga);
+}
+console.log('---------------')
+
+// 8. Vienas colis yra 2,54 cm. Sudarykite programą kuri pateiktų ekrane lentelę nuo 1 iki n colius centimetrais.
+
+let colisCentimetrais = 2.54;
+let colis = 0;
+for (i = 1; i <= 15; i++) {
+    colis++;
+    centimetrai = colis * colisCentimetrais;
+    console.log(`${colis} inch --> ${centimetrai} cm`);
+}
+console.log('---------------')
+
+// 9. Bankas moka 2% metinių palūkanų. Indėlininkas pasidėjo į banką 100e. Sudarykite kasmetinę banko atskaitą klientui iki n metų. Ataskaitoje pateikite: metus, palūkanas, indėlį.
+
 

@@ -52,7 +52,7 @@ console.log('--------------')
 
 // 5. Parašyti funkciją, kuri priimtų vieną skaičių, kuris turi būti didesnis už vienetą. Funkcija turi grąžinti visų skaičių sumą, nuo 1 iki įvesto skaičiaus.
 
-function suma(a) {
+function skaiciuSuma(a) {
     if (a > 1) {
     let skaicius = 0
     for (i = 1; i <= a; i++) {
@@ -60,5 +60,58 @@ function suma(a) {
     } return console.log(skaicius);
 }
 }
-let s3 = suma(6);
+let s3 = skaiciuSuma(6);
 console.log('--------------')
+
+// 6. Parašykite funkciją, kuri priimtų skaičių ir suskaičiuotų, iš kiek sveikų skaičių jos argumentas dalijasi be liekanos (išskyrus vienetą ir patį save).
+
+function skaicius(num) {
+    let nr = 1;
+    if (num / nr !== num && num / nr !== 1) {
+        for (i = 0; i <= num; i++) {
+            
+            nr++;
+            
+        }   
+        
+    } return console.log(nr);
+} 
+
+let s4 = skaicius(2);
+console.log('--------------')
+//  7. Parašyti funkciją, kuri priimtų vieną kintamąjį - tekstą. Funkcija turi išvesti tekstą į ekraną ir dar papildomai parodyti jo ilgį (simbolių kiekį).
+
+function tekstas(text) {
+    if (typeof text === 'string') {
+        return `Zodzio [${text}] ilgis lygus [${text.length}] simboliu.`
+    }
+}
+console.log(tekstas('Patikrinimas'));
+console.log('--------------')
+// 8. Parašyti funkciją telefonoNumeris, kuri priima vieną kintamąjį – masyvą su 10 skaičių jame. Funkcija turi grąžinti telefono numerį tokiu formatu - "(XXX) XXX-XXXX".
+
+function telefonoNumeris(numeris) {
+    if (numeris.length === 10 && typeof numeris === 'object') {
+        return `Telefono numeris: (${numeris[0]}${numeris[1]}${numeris[2]}) ${numeris[3]}${numeris[4]}${numeris[5]}-${numeris[6]}${numeris[7]}${numeris[8]}${numeris[9]}`;
+    }  
+    if (typeof numeris !== 'object') {
+        return `ERROR: bloga telefono numerio pateikimo forma.`
+    }
+    if (numeris.length < 10) {
+        return `ERROR: telefono numeris per trumpas.`
+    } else {
+        return 'ERROR: telefono numeris per ilgas.'
+    } 
+}
+// Patikrinimas
+a = [3, 7, 0, 6, 6, 6, 5, 5, 5, 5];
+console.log(telefonoNumeris(a));
+
+a = [3, 2, 5, 7, 8];
+console.log(telefonoNumeris(a));
+
+a = (6564458789);
+console.log(telefonoNumeris(a));
+
+a = ('asdsada');
+console.log(telefonoNumeris(a));

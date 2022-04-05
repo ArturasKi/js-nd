@@ -65,20 +65,27 @@ console.log('--------------')
 
 // 6. Parašykite funkciją, kuri priimtų skaičių ir suskaičiuotų, iš kiek sveikų skaičių jos argumentas dalijasi be liekanos (išskyrus vienetą ir patį save).
 
-function skaicius(num) {
-    let nr = 1;
-    if (num / nr !== num && num / nr !== 1) {
-        for (i = 0; i <= num; i++) {
-            
-            nr++;
-            
-        }   
-        
-    } return console.log(nr);
-} 
+function dalmuo(num) {
+    if (typeof num !== 'number' || !isFinite(num)) {
+        return `ERROR: turi buti tik sveikieji skaiciai.`
+    }
 
-let s4 = skaicius(2);
+    let daliklis = 0;
+    for (i = 2; i < num; i++) {
+        if (num % i === 0) {
+            daliklis++;
+        }
+    } return `Argumentas turi ${daliklis} sveikuosius skaicius.`;
+}
+
+// Patikrinimas
+s4 = 6;
+console.log(dalmuo(s4));
+s4 = 12;
+console.log(dalmuo(s4));
+
 console.log('--------------')
+
 //  7. Parašyti funkciją, kuri priimtų vieną kintamąjį - tekstą. Funkcija turi išvesti tekstą į ekraną ir dar papildomai parodyti jo ilgį (simbolių kiekį).
 
 function tekstas(text) {
@@ -88,6 +95,7 @@ function tekstas(text) {
 }
 console.log(tekstas('Patikrinimas'));
 console.log('--------------')
+
 // 8. Parašyti funkciją telefonoNumeris, kuri priima vieną kintamąjį – masyvą su 10 skaičių jame. Funkcija turi grąžinti telefono numerį tokiu formatu - "(XXX) XXX-XXXX".
 
 function telefonoNumeris(numeris) {
@@ -115,3 +123,47 @@ console.log(telefonoNumeris(a));
 
 a = ('asdsada');
 console.log(telefonoNumeris(a));
+console.log('--------------')
+
+// 9. Parašyti funkciją, kuri priimtų du kintamuosius - tekstus. Palyginti kuris tekstas yra ilgesnis.
+
+function palyginimas(txt1, txt2) {
+    if (txt1.length > txt2.length) {
+        return `Pirmasis tekstas yra ilgesnis -> ${txt1.length} simboliu.`;
+    } else {
+        return `Antrasis tekstas yra ilgesnis -> ${txt2.length} simboliu.`;
+    }
+} 
+   
+a = ('Labasvakaras');
+b = ('Labas');
+console.log(palyginimas(a, b));
+
+a = ('Labasvakaras');
+b = ('Labasvakarelis');
+console.log(palyginimas(a, b));
+console.log('--------------')
+
+// 10. Parašyti funkciją, kuri priimtų vieną kintamąjį - tekstą. Suskaičiuoti, kiek tekste yra ‚a‘ raidžių.
+
+function raidziuSuma(tekstas) {
+    let raides = tekstas.split('');
+    let raidziuSkaicius = 0;
+    for (i = 0; i < raides.length; i++) {
+        if (raides[i] === 'a') {
+        raidziuSkaicius++;
+        }
+    }
+    return `Zodyje yra ${raidziuSkaicius}-a raides.`
+}
+
+// Patikrinimas
+a = ('Abrakadabra')
+console.log(raidziuSuma(a));
+
+a = ('Magijos triukas')
+console.log(raidziuSuma(a));
+
+
+
+

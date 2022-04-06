@@ -10,12 +10,10 @@ while (skaiciuSuma < 100) {
 console.log('----------');
 
 //  2. Generuoti atsitiktinius skaičius nuo 1 iki 10 tol, kol sugeneruotų skaičių suma bus dali iš 7.
+skaiciuSuma = Math.floor(Math.random() * 10) + 1;
 
-skaiciuSuma = 0;
-
-while (skaiciuSuma % 7 === 0) {
-    let randomSkaicius = Math.floor(Math.random() * 10) + 1;
-    skaiciuSuma += randomSkaicius;
+while (skaiciuSuma % 7 !== 0) {
+    skaiciuSuma += Math.floor(Math.random() * 10) + 1;
     console.log(skaiciuSuma);
 } 
 
@@ -37,8 +35,17 @@ while (paskutinisPenki !== 5) {
     
     console.log(paskutinisPenki);
 }
+console.log('----------');
 
 // 5. Naudojant ciklą atspausdinti skirtingus atsitiktinius skaičius nuo 0 iki 10 (vienas skaičius vienoje eilutėje). Paskutinis atspausdintas skaičius turi būti 5 arba 7; Suskaičiuoti kiek ciklų prasisuko.
+
+paskutinisSkaicius = 0;
+ciklas = 0;
+while (paskutinisSkaicius !== 7 && paskutinisSkaicius !== 5) {
+    paskutinisSkaicius = Math.floor(Math.random() * 11);
+    ciklas++;
+    console.log(`Skaicius: ${paskutinisSkaicius} -> is viso prasisuko: ${ciklas} ciklai.`);
+}
 
 
 

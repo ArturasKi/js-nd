@@ -26,6 +26,19 @@ console.log('----------');
 // Tadas visą knygą perskaitys per 6 dienas (-ų).
 // Tadas vidutiniškai per dieną perskaitė 2.83 skyrius (-ų).
 
+m = 8;
+d = 0;
+s = 0;
+
+while (s < m) {
+    d++;
+    s += d;
+}
+vidurkis = m / d;
+console.log(`Tadas knyga perskaito per ${d} dienas, o vidutiniskai per diena  perskaito ${vidurkis} skyrius.`);
+
+console.log('----------');
+
 // 4. Naudojant ciklą atspausdinti skirtingus atsitiktinius skaičius nuo 0 iki 10 (vienas skaičius vienoje eilutėje). Paskutinis atspausdintas skaičius turi būti 5.
 
 paskutinisPenki = 0;
@@ -46,6 +59,8 @@ while (paskutinisSkaicius !== 7 && paskutinisSkaicius !== 5) {
     ciklas++;
     console.log(`Skaicius: ${paskutinisSkaicius} -> is viso prasisuko: ${ciklas} ciklai.`);
 }
+
+
 
 
 

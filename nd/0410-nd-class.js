@@ -19,31 +19,40 @@ class Dog {
         this.spalva = 'pilka';
         this.akys = 'melynos';
         this.kojos = '4';
-        this.garsas = true;
-        this.maistas = 'sonkauliukai';
+        this.garsas = false;
+        this.maistas = 'sonkauliuku';
         this.arSedi = false;
     }
     galiIsskleistGarsa() {
         if (this.garsas === true) {
-            console.log('Vejas: au au!!');
+            console.log(`${this.vardas}: au au!!`);
         }
         if (this.garsas !== true) {
-            console.log('Vejas: Vizgina uodega.');
+            console.log(`${this.vardas}: Vizgina uodega.`);
         }
     }
     galiPrisistatyti() {
-        this.atsisesti === true;
-        console.log(`Labas, as esu suo ir mano vardas ${this.vardas}. Mano spalva yra ${this.spalva}. Mano akiu spalva yra ${this.akys}. As turiu ${this.kojos} kojas. Siuo metu`);
+        this.prisistatymas === true;
+        console.log(`${this.vardas}: Labas, as esu suo ir mano vardas ${this.vardas}. Mano spalva yra ${this.spalva}. Mano akiu spalva yra ${this.akys}. As turiu ${this.kojos} kojas. Siuo metu`);
     }
     galiAtsisesti() {
-        this.arSedi = true;
-        console.log('Vejas: dabar as sedziu.');
+        if (this.arSedi !== false) {
+        console.log(`${this.vardas}: dabar as sedziu.`);
+        }
     }
     galiAtsistoti() {
-        this.arSedi = false;
-        console.log('Vejas: dabar as stoviu.');
+        if (this.arSedi === false) {
+        console.log(`${this.vardas}: dabar as stoviu.`);
+        }
     }
-
+    arGausMaisto() {
+        if (this.arSedi === false) {
+            console.log(`${this.vardas}: gaus ${this.maistas}.`);
+        }
+        if (this.arSedi !== false) {
+            console.log(`${this.vardas}: dabar nenori valgyt.`);
+        }
+    }
 }
 
 const suo1 = new Dog('Vejas', 'Vipetas');
@@ -54,5 +63,6 @@ suo1.galiIsskleistGarsa();
 suo1.galiPrisistatyti(); 
 suo1.galiAtsisesti(); 
 suo1.galiAtsistoti(); 
+suo1.arGausMaisto(); 
 
 

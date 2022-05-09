@@ -66,3 +66,5 @@ suo1.galiAtsistoti();
 suo1.arGausMaisto(); 
 
 
+console.log('---------------------')
+

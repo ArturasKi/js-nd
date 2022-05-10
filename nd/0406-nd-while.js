@@ -1,6 +1,6 @@
 // 1. Generuoti atsitiktinius skaičius nuo 1 iki 10 tol, kol skaičių suma bus mažesnė už 100.
 
-skaiciuSuma = 0;
+let skaiciuSuma = 0;
 
 while (skaiciuSuma < 100) {
     let atsitiktinis = Math.floor(Math.random() * 10) + 1;

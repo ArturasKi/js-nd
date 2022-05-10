@@ -132,10 +132,20 @@ while(ciklai < 11 || sumaSk < 20) {
 
 console.log('-------- 12 ---------')
 
+let cycle = true;
+let count = 0;
 
+do {
+    let sk = rand(0, 10);
+    console.log(sk);
+    if (sk % 2 !== 0) {
+        count++;  
+    } 
 
-
-
+    if (count === 3) {
+        cycle = false;
+    }
+} while (cycle);
 
 // 13. console.log’e, naudojant ciklą atspausdinti po porą skirtingų atsitiktinių skaičių nuo 0 iki 10 (abu skaičiai vienoje eilutėje). Ciklą kartoti tol, kol neiškris abu vienodi skaičiai;
 
@@ -171,7 +181,25 @@ console.log(`x = ${x} = ${sumaX}, y = ${y} = ${sumaY}`);
 
 console.log('-------- 15 ---------')
 
+let count1 = 0;
+let count2 = 0;
 
+do {
+    let sk1 = rand(0, 10);
+    let sk2 = rand(0, 10);
+
+    console.log(sk1, sk2);
+
+    if (sk1 % 2 !== 0) {
+        count1++;  
+    } 
+    if (sk2 % 2 !== 0) {
+        count2++;  
+    } 
+    if (count1 >= 3 && count2 >= 3) {
+        break;
+    }
+} while (count1 !== 3 || count2 !== 3);
 
 
 

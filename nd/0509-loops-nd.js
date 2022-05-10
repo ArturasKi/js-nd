@@ -12,7 +12,7 @@ tipo kintąmąjį pasinaudodami console.log; */
 console.log('---------- 1 ----------');
 
 function rand(min, max) {
-    return Math.floor(Math.random() * (max - min) + min);
+    return Math.floor(Math.random() * (max - min + 1) + min);
 }
 //A
 const b = rand(5, 25);
@@ -96,17 +96,145 @@ console.log('---------- 7 ----------');
 
 let kintamasis = 0;
 let kSuma = 0;
+let stringoTipas = '';
+let stringoKintamasis = '';
 
-for(i = 0; i < 5; i++) {
+for (i = 0; i < 5; i++) {
     
     kintamasis = rand(10, 20); //A
-    console.log(kintamasis);
     
-    kSuma += kintamasis;
+    kSuma += kintamasis; //B
+
+    stringoTipas += '' + kintamasis + ' '; //C
+
+    stringoKintamasis = stringoTipas + kSuma; //D
+
+} 
+console.log(kintamasis); //A
+console.log(`Suma: ${kSuma}`); //B
+console.log(stringoTipas); //C
+console.log(stringoKintamasis); //D
+
+/* 8. Deklaruokite kintamąjį (jeigu reikia kelis kintamuosius) už ciklo ribų. Ciklo viduje generuokite atsitiktinius skaičius funkcija rand(), kurie yra iš intervalo 10…25. Ciklą kartokite tol, kol ciklo viduje bus sugeneruotas skaičius mažesnis nei 12;
+A. Ciklo viduje sugeneruotą reikšmę priskirkite kintamajam, kurį sukūrėte už ciklo
+ribų ir jį atspauzdinkite;
+B. Suskaičiuokite kiek iteracijų padarėte ir jų kiekį atspauzdinkite pasinaudodami
+console.log už ciklo ribų jam pasibaigus;
+C. Skaičiuokite ciklo viduje generuojamų reikšmių sumą, atmesdami
+(neskaičiuodami) skaičius, kurie yra didesni nei 18, ją priskirdami kintamajam,
+kurį sukūrėte už ciklo ribų. Rezultatą atspauzdinkite pasinaudodami console.log
+už ciklo ribų;
+D. Sumą skaičiuokite kaip C dalyje, bet papildomai susikurkite kintamąjį, kuriame
+suskaičiuokite kiek reikšmių atmetėte (nesumavote). Rezultatą su suma ir
+atmestų reikšmių kiekiu atspauzdinkite pasinaudodami console.log už ciklo ribų;
+E. Suskaičiuokite kiek tarp cikle atsitiktinai generuojamų reikšmių yra lyginių ir kiek
+nelyginių skaičių. Rezultatą atspauzdinkite pasinaudodami console.log už ciklo
+ribų jam pasibaigus.
+F. Ciklą iš dalies B kartokite tol, kol to ciklo iteracijų kiekis bus didesnis nei 20
+(vieno ciklo). Paskaičiuokite kiek pakartojimų buvo atlikta ir rezultatą
+atspauzdinkite pabaigoje. */
+
+console.log('---------- 8 ----------');
+
+let p = 0;
+let iteracijos = 0;
+let reiksmiuSuma = 0;
+let atmestosReiksmes = 0;
+let lyginesReiksmes = 0;
+let nelyginesReiksmes = 0;
+
+
+do {
+
+    p = rand(10, 25);
+    console.log(p); //A
+    iteracijos++; //B
     
-} console.log(`Suma: ${kSuma}`); //B
+    if (p <= 18) {
+        reiksmiuSuma += p; //C
+    } 
+    
+    if (p > 18) {
+        atmestosReiksmes++; //D
+    }
+
+    if (p % 2 === 0) {
+        lyginesReiksmes++; //E
+    }
+
+    if (p % 2 !== 0) {
+        nelyginesReiksmes++; //E
+    }
+
+
+} while (p >= 12);
+
+console.log(`Padarytos ${iteracijos} iteracijos.`); //B
+console.log(`Reiksmiu suma: ${reiksmiuSuma}.`); //C
+console.log(`Atmestos ${atmestosReiksmes} reiksmes.`); //D
+console.log(`${lyginesReiksmes} lygines reiksmes ir ${nelyginesReiksmes} nelygines reiksmes.`); //E
+
+
+/* 9. Ciklo viduje generuokite atsitiktinius skaičius funkcija rand(), kurie yra iš intervalo 5-10. Ciklą kartokite tol, kol ciklo viduje bus sugeneruotas skaičius 5;
+A. Ciklo viduje paleiskite dar vieną ciklą kurį kartokite tiek kartų, koks skaičius buvo
+sugeneruotas. Paskaičiuokite kiek iteracijų padarė išorinis ciklas ir kiek bendrai
+iteracijų padarė vidinis ciklas. Rezultatus atspauzdinkite pasinaudodami
+console.log už ciklo ribų jam pasibaigus;
+B. Padarykite taip, kad išorinis ciklas pasibaigtų kai 5 yra sugeneruojamas ne pirmą,
+bet trečią kartą ir paskaičiuokite iteracijas analogiškai kaip A dalyje;
+C. Padarykite analogiškai kaip B dalyje, bet tik kai 5 yra sugeneruojami 3 kartus iš
+eilės; */
+
+console.log('---------- 9 ----------');
+
+let n = 0;
+let n1 = 0;
+
+do {
+
+    n = rand(5, 10);
+    console.log(n);
+
+    do {
+
+        n1 = rand(5, 10);
+        console.log(`Ciklas cikle: ${n1}`);
+        
+    } while (n1 !== 5)
+
+
+} while (n !== 5)
 
 
 
 
 
+/* 10. Kazys ir Petras žaidžiai bingo. Petras per vieną partiją surenka taškų kiekį nuo 10 iki 20, Kazys - surenka taškų kiekį nuo 5 iki 25. Console.log išvesti žaidėjų vardus su taškų kiekiu ir “Partiją laimėjo: laimėtojo vardas”. Taškų kiekį generuokite funkcija rand(). Žaidimą laimi tas, kas greičiau surenka 222 taškus. Partijas kartokite tol, kol kažkuris žaidėjas pirmas surenks 222 arba daugiau taškų. */
+
+
+
+
+
+
+// function sameCase(a, b){
+  
+//     if (a == /^[a-z]+$/i.test(a) || b == /^[a-z]+$/i.test(b)) {
+//        return -1; 
+//     }
+//     if (a.toLowerCase() == a && b.toLowerCase() == b) {
+//       return 1;
+//     }
+//     if (a.toUpperCase() == a && b.toUpperCase() == b) {
+//       return 1;
+//     }
+//     if (a.toLowerCase() != a || b.toLowerCase() != b || a.toUpperCase() != a || b.toUpperCase() != b) {
+//         return 0;
+//     }
+// }
+
+// console.log(sameCase('H', ':')); 
+// console.log(sameCase('0', '?')); 
+// console.log(sameCase('a', 'b'));
+// console.log(sameCase('C', 'T'));
+// console.log(sameCase('c', 'A'));
+// console.log(sameCase('G', 'a'));

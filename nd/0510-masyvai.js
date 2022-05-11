@@ -210,16 +210,14 @@ console.log(`Laimingi bilietai: ${laimingiBilietai}`);
 
 // 18. Sukurkite penktą skyrelį ir į jį sudėkite nuotraukas: ['šuo', 'katė', 'automobilis', 'namas', 'kiemas'] ir jas išrūšiuokite pagal žodžių ilgį taip, kad pirma eitų trumpiausi žodžiai;
 
-let penktasSkyrelis = ['šuo', 'katė', 'automobilis', 'namas', 'kiemas'];
+const penktasSkyrelis = ['šuo', 'katė', 'automobilis', 'namas', 'kiemas'];
 
-console.log(penktasSkyrelis[0]);
-console.log(penktasSkyrelis[0].length);
+const surusiuotasPagalIlgi = penktasSkyrelis.sort((a, b) => a.length - b.length);
 
-for (let i = 0; i < penktasSkyrelis.length; i++) {
-    penktasSkyrelis[i].length.sort();
-}
+keturgubasMasyvas.push(surusiuotasPagalIlgi);
 
-console.log(penktasSkyrelis);
+console.log(keturgubasMasyvas);
+
 
 
 

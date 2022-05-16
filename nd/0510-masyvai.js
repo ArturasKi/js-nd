@@ -1,3 +1,4 @@
+// MASYVAI
 // 1.Sukurti masyvą (piniginę), kurio ilgis yra atsitiktinis nuo 10 iki 30, o reikšmės atsitiktiniai skaičiai nuo 0 iki 10 (pinigai); 
 
 function rand(min, max) {
@@ -210,6 +211,8 @@ console.log(`Laimingi bilietai: ${laimingiBilietai}`);
 
 // 18. Sukurkite penktą skyrelį ir į jį sudėkite nuotraukas: ['šuo', 'katė', 'automobilis', 'namas', 'kiemas'] ir jas išrūšiuokite pagal žodžių ilgį taip, kad pirma eitų trumpiausi žodžiai;
 
+console.log('---------- 18 ----------');
+
 const penktasSkyrelis = ['šuo', 'katė', 'automobilis', 'namas', 'kiemas'];
 
 const surusiuotasPagalIlgi = penktasSkyrelis.sort((a, b) => a.length - b.length);
@@ -217,6 +220,99 @@ const surusiuotasPagalIlgi = penktasSkyrelis.sort((a, b) => a.length - b.length)
 keturgubasMasyvas.push(surusiuotasPagalIlgi);
 
 console.log(keturgubasMasyvas);
+
+// MASYVAI BASIC +
+// 1. Sugeneruokite masyvą iš 30 elementų (indeksai nuo 0 iki 29), kurių reikšmės yra atsitiktiniai skaičiai nuo 5 iki 25.
+
+const masyvas = []; // 1
+let didesnesUzDesimt = 0; // 2a
+let maxReiksme = 0; // 2b
+let maxIndex = 0; // 2b
+let evenIndex = 0;
+let naujasMasyvas = [];
+let papildomiDesimt = [];
+let index = [];
+let lyginisMasyvas = [];
+let nelyginisMasyvas = [];
+
+
+for (let i = 0; i < 30; i++) {
+    masyvas.push(rand(5, 25)); // 1
+
+    if (masyvas[i] > 10) {
+        didesnesUzDesimt++; // 2a
+    }
+
+    maxReiksme = Math.max(...masyvas); // 2b
+    maxIndex = masyvas.indexOf(maxReiksme); // 2b
+
+    if (masyvas[i] % 2 === 0) {
+        evenIndex++; // 2c
+    }
+    naujasMasyvas.push(masyvas[i] - i); // 2d
+
+    if (naujasMasyvas.length < 40) {
+        naujasMasyvas.push(rand(5, 25)); // 2e
+    }
+    
+}
+
+
+// papildomiDesimt = JSON.parse(JSON.stringify(naujasMasyvas));
+
+// for (let i = 0; i < 10; i++) {
+//     papildomiDesimt.push(rand(5, 25)) // 2e
+
+//     if (i % 2 === 0) {
+//         lyginisMasyvas.push(i);
+//     }
+// }
+
+console.log('---------- 1+ ----------');
+console.log(masyvas);
+console.log('---------- 2a+ ----------');
+console.log(didesnesUzDesimt);
+console.log('---------- 2b+ ----------');
+console.log(`Max: ${maxReiksme}, index: ${maxIndex}`);
+console.log('---------- 2c+ ----------');
+console.log(evenIndex);
+console.log('---------- 2d+ ----------');
+console.log(naujasMasyvas);
+console.log('---------- 2e+ ----------');
+console.log(papildomiDesimt);
+console.log('---------- 2f+ ----------');
+
+console.log(lyginisMasyvas);
+
+
+
+
+/* 2. Naudodamiesi 1 uždavinio masyvu:
+a) Suskaičiuokite kiek masyve yra reikšmių didesnių už 10;
+b) Raskite didžiausią masyvo reikšmę ir jos indeksą;
+c) Suskaičiuokite visų porinių (lyginių) indeksų reikšmių sumą;
+d) Sukurkite naują masyvą, kurio reikšmės yra 1 uždavinio masyvo reikšmes
+minus tos reikšmės indeksas;
+e) Papildykite masyvą papildomais 10 elementų su reikšmėmis nuo 5 iki
+25, kad bendras masyvas padidėtų iki indekso 39;
+f) Iš masyvo elementų sukurkite du naujus masyvus. Vienas turi būti
+sudarytas iš neporinių indeksų reikšmių, o kitas iš porinių (pagal
+neporinį-porinį indeksą, ne reikšmę);
+g) Pirminio masyvo elementus su poriniais indeksais padarykite lygius 0
+jeigu jie didesni už 15;
+h) Suraskite pirmą (mažiausią) indeksą, kurio elemento reikšmė didesnė
+už 10; */
+
+
+
+
+
+
+
+
+
+
+
 
 
 

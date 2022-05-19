@@ -5,7 +5,7 @@ const tagSpan = document.querySelector('span');
 console.log(tagH1);
 console.log(tagH2);
 
-tagH1.style.color = 'green';   //1a
+tagH1.style.color = 'blue';   //1a
 
 tagH1.classList.add('small');  //1b
 console.log(tagH1.outerHTML);
@@ -24,19 +24,89 @@ const tagH2All = document.querySelectorAll('h2');
 const countH2 = tagH2All.length;
 console.log(countH2); //2a
 
-let h2WithoutFirst = 0;
-
-for (let i = 0; i < countH2; i++) {
-    if (tagH2.classList.contains('first')) {
-        h2WithoutFirst++;
-    } else console.log('Labas');
-}
-
-console.log(h2WithoutFirst);
+const h2First = document.querySelectorAll('.first');
+console.log(tagH2All.length - h2First.length); //2b
 
 tagH2All.forEach(tagH2All => {
     tagH2All.style.color = 'aqua';
-}); // 2c
+}); //2c
+
+const tagDivH2 = document.querySelectorAll('div > h2');
+tagDivH2.forEach(tagDivH2 => {
+    tagDivH2.classList.add('price-tag');
+})  //2d
+
+const classNew = document.querySelectorAll('.new');
+
+classNew.forEach(classNew => {
+    classNew.style.textDecoration = 'underline';
+})  //2e
+
+const gyvKat = document.querySelectorAll('ul');
+console.log(gyvKat.length); //2f
+
+gyvKat.forEach(gyvKat => {
+    gyvKat.style.border= '2px solid purple';
+    gyvKat.style.padding= '15px 50px';
+}) //2g
+
+const gyvNew = document.querySelectorAll('ul > .new');
+console.log(gyvNew.length); //2h
+
+const gyvNew1 = document.querySelectorAll('ul > .new')[0];
+
+console.log(gyvNew1)
+
+const btnColor = document.querySelector('#h1-color');
+const btnFont = document.querySelector('#h1-font');
+
+btnColor.addEventListener('click', () => {
+    console.log('Paspausta');
+    tagH1.style.color = 'green';
+})  //3a
+
+btnFont.addEventListener('click', () => {
+    console.log('Paspausta');
+    tagH1.style.fontSize = '10px';
+})  //3a
+
+document.querySelector('i').addEventListener('click', e => {
+    e.stopPropagation();
+    e.target.style.fontWeight = 'bold' 
+})  //3b
+
+document.querySelector('.prices').addEventListener('click', e => {
+    e.stopPropagation();
+    e.target.style.backgroundColor = e.target.style.backgroundColor === 'grey' ? 'white' : 'grey';
+})  //3c
+
+document.querySelector('#contacts').addEventListener('click', e => {
+    e.stopPropagation();
+    e.target.style.color = 'orange';
+})  //3d
+
+document.querySelector('#contacts > u').addEventListener('click', e => {
+    e.stopPropagation();
+    e.target.style.fontSize = '20px';
+})  //3e
+
+document.querySelector('#contacts b').addEventListener('click', e => {
+    e.stopPropagation();
+    e.target.style = '';
+})  //3f
+
+const btnColorBack = document.querySelector('#h1-color-back');
+const btnFontBack = document.querySelector('#h1-font-back');
+
+btnColorBack.addEventListener('click', () => {
+    console.log('Paspausta');
+    tagH1.style.color = 'blue';
+})  //3g
+
+btnFontBack.addEventListener('click', () => {
+    console.log('Paspausta');
+    tagH1.style.fontSize = '16px';
+})  //3g
 
 
 
@@ -74,10 +144,8 @@ c. Padaryti, kad paspaudus ant tago su klase prices, backgroundas pasikeistų į
 pilką, o paspaudus dar kartą vėl grįžtu į baltą spalvą;
 d. Padaryti, kad paspaudus ant tago su id contacts, tam tagui būtų pridėta css
 savybė color = orange;
-e. Padaryti taip, kad paspaudus ant padidinti, esančio tage su id contacts, tagui
-su id contacts būtų pridėta css savybė fontSize = 20px;
-f. Padaryti taip, kad paspaudus ant X, esančio tage su id contacts, pridėtos tage su
-id contacts savybės būtų panaikintos
+e. Padaryti taip, kad paspaudus ant padidinti, esančio tage su id contacts, tagui su id contacts būtų pridėta css savybė fontSize = 20px;
+f. Padaryti taip, kad paspaudus ant X, esančio tage su id contacts, pridėtos tage su id contacts savybės būtų panaikintos
 Https://stackoverflow.com/questions/18691655/remove-style-on-element
 g. Padaryti tai ką liepia mygtukai Header2 sekcijoje;
 4. Elementų grupių events

@@ -346,3 +346,25 @@ function squareOrSquareRoot(array) {
   return array.map(item => Math.sqrt(item) == Math.sqrt(item).toFixed(0) ? Math.sqrt(item) : item * item); 
 }
 
+// function sameCase(a, b){
+  
+//     if (a == /^[a-z]+$/i.test(a) || b == /^[a-z]+$/i.test(b)) {
+//        return -1; 
+//     }
+//     if (a.toLowerCase() == a && b.toLowerCase() == b) {
+//       return 1;
+//     }
+//     if (a.toUpperCase() == a && b.toUpperCase() == b) {
+//       return 1;
+//     }
+//     if (a.toLowerCase() != a || b.toLowerCase() != b || a.toUpperCase() != a || b.toUpperCase() != b) {
+//         return 0;
+//     }
+// }
+
+// console.log(sameCase('H', ':')); 
+// console.log(sameCase('0', '?')); 
+// console.log(sameCase('a', 'b'));
+// console.log(sameCase('C', 'T'));
+// console.log(sameCase('c', 'A'));
+// console.log(sameCase('G', 'a'));

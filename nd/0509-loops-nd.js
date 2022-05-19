@@ -205,10 +205,6 @@ do {
 
 } while (n !== 5)
 
-
-
-
-
 /* 10. Kazys ir Petras žaidžiai bingo. Petras per vieną partiją surenka taškų kiekį nuo 10 iki 20, Kazys - surenka taškų kiekį nuo 5 iki 25. Console.log išvesti žaidėjų vardus su taškų kiekiu ir “Partiją laimėjo: laimėtojo vardas”. Taškų kiekį generuokite funkcija rand(). Žaidimą laimi tas, kas greičiau surenka 222 taškus. Partijas kartokite tol, kol kažkuris žaidėjas pirmas surenks 222 arba daugiau taškų. */
 
 
@@ -216,25 +212,3 @@ do {
 
 
 
-// function sameCase(a, b){
-  
-//     if (a == /^[a-z]+$/i.test(a) || b == /^[a-z]+$/i.test(b)) {
-//        return -1; 
-//     }
-//     if (a.toLowerCase() == a && b.toLowerCase() == b) {
-//       return 1;
-//     }
-//     if (a.toUpperCase() == a && b.toUpperCase() == b) {
-//       return 1;
-//     }
-//     if (a.toLowerCase() != a || b.toLowerCase() != b || a.toUpperCase() != a || b.toUpperCase() != b) {
-//         return 0;
-//     }
-// }
-
-// console.log(sameCase('H', ':')); 
-// console.log(sameCase('0', '?')); 
-// console.log(sameCase('a', 'b'));
-// console.log(sameCase('C', 'T'));
-// console.log(sameCase('c', 'A'));
-// console.log(sameCase('G', 'a'));

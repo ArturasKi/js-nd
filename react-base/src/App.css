@@ -36,3 +36,25 @@
     transform: rotate(360deg);
   }
 }
+
+.aps {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 77px;
+  height: 77px;
+  background-color: crimson;
+  margin: 7px;
+  border-radius: 50%;
+}
+
+.kv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 77px;
+  height: 77px;
+  background-color: crimson;
+  margin: 7px;
+  border-radius: 7px;
+}

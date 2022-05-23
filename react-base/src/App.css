@@ -58,3 +58,18 @@
   margin: 7px;
   border-radius: 7px;
 }
+
+.kvc {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.greenNo {
+  color: green;
+}
+
+.redNo {
+  color: red;
+}

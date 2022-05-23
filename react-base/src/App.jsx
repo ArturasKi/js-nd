@@ -2,55 +2,28 @@ import './App.css';
 
 function App() {
 
-  const dogs = ['šuo', 'šunius', 'Bobikas', 'kudlius', 'Šarikas',
-  'avigalvis'];
-
-  // 2.
-  dogs.sort((a, b) => {
-    return b.length - a.length;
-  });
+  const seaPlaners = [
+    {id: 1, type: 'man', name: 'Lina', color: 'blue'},
+    {id: 2, type: 'car', name: 'Opel', color: 'red'},
+    {id: 3, type: 'animal', name: 'Vilkas', color: 'green'},
+    {id: 4, type: 'fish', name: 'Ungurys', color: 'yellow'},
+    {id: 5, type: 'man', name: 'Tomas', color: 'green'},
+    {id: 6, type: 'animal', name: 'Bebras', color: 'red'},
+    {id: 7, type: 'animal', name: 'Barsukas', color: 'green'},
+    {id: 8, type: 'car', name: 'MB', color: 'blue'},
+    {id: 9, type: 'car', name: 'ZIL', color: 'red'},
+    {id: 10, type: 'man', name: 'Teta Toma', color: 'yellow'},
+    ];
   
-  let skaiciai = 1;
+    console.table(seaPlaners);
 
-  // 4.
-  const dogsLowerCase = [];
-  for(let i = 0; i < dogs.length; i++){
-   if (dogs[i][0].toUpperCase() !== dogs[i][0]) {
-    dogsLowerCase.push(dogs[i]);
-   }
-  };
-  console.log(dogsLowerCase);
 
 
   return (
 
     <div className="App">
       <header className="App-header">
-        <div className='kvc'>
-            {
-                dogs.map((c, i) => <div className='kv' key={i} style={{backgroundColor: 'brown', fontSize: '12px'}}>{dogs[i]}</div>)
-            }
-        </div>
-        <div className='kvc'>
-            {
-                dogs.map((c, i) => <div className='aps' key={i} style={{backgroundColor: 'green', fontSize: '12px'}}>{skaiciai++} {dogs[i]}</div>)
-            }
-        </div>
-        <div className='kvc'>
-            {
-                dogs.map((c, i) => <div className={i % 2 === 0 ? 'kv' : 'aps'} key={i} style={{backgroundColor: 'purple', fontSize: '12px'}}>{dogs[i]}</div>) // 3.
-            }
-        </div>
-        <div className='kvc'>
-            {
-                dogsLowerCase.map((c, i) => <div className='aps' key={i} style={{backgroundColor: 'green', fontSize: '12px'}}>{dogsLowerCase[i]}</div>)
-            }
-        </div>
-        <div className='kvc'>
-            {
-                dogs.map((c, i) => <div className={dogs[i].length > 6 ? 'aps + greenNo' : 'kv + redNo'} key={i} style={{backgroundColor: 'yellow'}}>{dogs[i].length}</div>)
-            }
-        </div>
+        <div></div>
       </header>
     </div>
   );

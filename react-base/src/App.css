@@ -43,7 +43,7 @@
   align-items: center;
   width: 77px;
   height: 77px;
-  background-color: crimson;
+  background-color: orange;
   margin: 7px;
   border-radius: 50%;
 }
@@ -54,7 +54,7 @@
   align-items: center;
   width: 77px;
   height: 77px;
-  background-color: crimson;
+  background-color: orange;
   margin: 7px;
   border-radius: 7px;
 }
@@ -64,12 +64,4 @@
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-}
-
-.greenNo {
-  color: green;
-}
-
-.redNo {
-  color: red;
 }

@@ -24,20 +24,12 @@ function App() {
     for (let i = 0; i < ilgis; i++) {
       kvadratai = Array.from({length: skaicius});
     }
-    setKv(k => [...k, ...kvadratai]);
+    setKv(k => k === null ? [...kvadratai] : [...k, ...kvadratai]);
   }
 
   const isimti = () => {
     setKv([]);
   }
-
-  // const prideti = () => {
-  //   const kvadratai = Array.from({length: skaicius});
-  //   for (let i = 0; i < kvadratai.length; i++) {
-  //     kvadratai.push('');
-  //   }
-  //   setKv(k => [...k, ...kvadratai]);
-  // }
 
   useEffect(() => {
     setKv(JSON.parse(localStorage.getItem('kv') ?? '[]'));

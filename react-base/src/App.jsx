@@ -1,162 +1,112 @@
+import { useEffect, useState } from 'react';
 import './App.css';
 import rand from './functions/rand';
 import randColor from './functions/randColor';
-import { useState, useEffect, useRef } from 'react';
-
-const cats = [
-  'Mulkis',
-  'Kakius',
-  'Pilkius',
-  'Balčius'
-];
-
-const dogs = [
-  'Sniego',
-  'Dingo',
-  'Atsirado',
-  'Pifas',
-  'Bobikas'
-];
-
-//1. Paspaudus mygtuką atvaizduoti katinukus.
 
 
 function App() {
-  
-  const apsRand = useRef([]);
 
-  const changeColor = () => {
-    apsRand.current.style.background = randColor();
-    }
-
+  const [skaicius, setSkaicius] = useState('');
   const [kv, setKv] = useState(null);
-  const istorija = useRef([]);
-  const [katinai, setKatinai] = useState([]);
 
-  // PIRMAS KROVIMAS
-  useEffect(() => {
-      setKv(JSON.parse(localStorage.getItem('kv'))); // gali buti null arba []
-  }, []);
+  // useEffect(() => setKv(
+  //   Array.from({length: skaicius}).map(_ => [])
+  // ), [skaicius]);
 
-  // UZSAUGOS POKYCIUS
-  useEffect(() => {
-      if (null === kv) {
-          return;
-      }
-      localStorage.setItem('kv', JSON.stringify(kv));
-      istorija.current.unshift(kv);
-  }, [kv]);
+  const inputSkaicius = e => {
+    setSkaicius(e.target.value);
+    console.log(e.target.value);
+  }
 
   const prideti = () => {
-      const kiekis = rand(5, 10);
-      const kvadratukai = [];
-      for (let i = 0; i < kiekis; i++) {
-          kvadratukai.push('^o^');
-      }
-      setKv(k => null === k ? [...kvadratukai] : [...k, ...kvadratukai]);
-      console.log(istorija.current);
+    let kvadratai = [];
+    const ilgis = skaicius;
+    for (let i = 0; i < ilgis; i++) {
+      kvadratai = Array.from({length: skaicius});
+    }
+    setKv(k => [...k, ...kvadratai]);
   }
 
-  const isvalyti = () => {
-      setKv([]);
+  const isimti = () => {
+    setKv([]);
   }
 
-  const atgal = () => {
-      let senas = istorija.current.shift();
-      if (!senas) {
-          setKv([]);
-      } else if (senas.length === kv.length) {
-          senas = istorija.current.shift();
-          if (!senas) {
-              setKv([]);
-          } else {
-              setKv(senas);
-          }
-      }
-      else {
-          setKv(senas);
-      }
-      console.log(istorija.current);
-  }
+  // const prideti = () => {
+  //   const kvadratai = Array.from({length: skaicius});
+  //   for (let i = 0; i < kvadratai.length; i++) {
+  //     kvadratai.push('');
+  //   }
+  //   setKv(k => [...k, ...kvadratai]);
+  // }
+
+  useEffect(() => {
+    setKv(JSON.parse(localStorage.getItem('kv') ?? '[]'));
+  }, []);
+
+  useEffect(() => {
+    if (null === kv) {
+        return;
+    }
+    localStorage.setItem('kv', JSON.stringify(kv));
+}, [kv]);
+
   
-  const addCats = () => {
-      setKatinai(cats);
-  }
-  const addDogs = () => {
-      setKatinai(dogs);
-  }
-  const removeAll = () => {
-      setKatinai([]);
-  }
-    // JSON.stringify - paverciam masyva i stringa;
-  
-
   return (
 
     <div className="App">
       <header className="App-header">
         <button onClick={prideti}>PRIDĖTI</button>
+        <button onClick={isimti}>IŠIMTI</button>
+        <input type='number' value={skaicius} onChange={inputSkaicius}></input>
         <div className='kvc'>
-            {
-                kv ? kv.map((k, i) => <div style={{background: 'green'}} key={i} className='kv'>{k}</div>) : null
-            }
-        </div>
-        <button onClick={isvalyti}>IŠVALYTI</button>
-        <button onClick={atgal}>ATGAL</button>
-        <select>
-          <option>{JSON.stringify(istorija.current)}</option>
-        </select>
-        
-        <br/>
-        <button onClick={addCats}>CATS CLICK</button>
-        <button onClick={addDogs}>DOGS CLICK</button>
-        <button onClick={removeAll}>REMOVE</button>
-        <div className='green-field'>
           {
-            katinai.map((c, i) => <div key={i}>{c}</div>)
+            kv ? kv.map((c, i) => <div className="kv" key={i}>{rand(100, 200)}</div>) : null
           }
         </div>
-        
-        <button onClick={changeColor}>KEISTI</button>
-        <div ref={apsRand} className='aps' style={{background: 'sandybrown'}}>1</div>
-        <div ref={apsRand} className='aps' style={{background: 'sandybrown'}}>2</div>
-        <div ref={apsRand} className='aps' style={{background: 'sandybrown'}}>3</div>
-        
       </header>
     </div>
-
   );
 }
 
 export default App;
 
-// 1. Sukurti aplikaciją su mygtuku “Pridėti”, kurį paspaudus atsiranda
-// rand 5-10 kvadratukai. Paspaudus dar kartą dar prisideda rand
-// kvadratukų skaičius. Puslapį perkrovus kvadratukų skaičius
-// pasilieka nepakitęs. Padaryti mygtuką “Išvalyti”, kurį paspaudus
-// visi kvadratukai dingsta. Padaryti mygtuką “Atgal”, kurį
-// paspaudus kvadratukų skaičius pasidaro lygus skaičiui, buvusiam
-// prieš paspaudus mygtuką “Pridėti”, o paspaudus dar kartą grįžtama
-// dar vienu žingsniu atgal (t.y. reikia sukurti “undo” funkcionalumą).
-// Puslapiui persikrovus istorija yra užmirštama. Saugoma tik
-// istorija iki puslapiui persikraunant. Į istoriją turi būti
-// pridedami veiksmai tiek iš “Pridėti” tiek iš “Išvalyti” mygtukų
-// paspaudimo.
-// 2. Patobulinti 1 uždavinį taip, kad šalia mygtuko “Atgal” atsirastų
-// select laukelis, kuriame būtų sudedami visi padaryti žingsniai.
-// T.y. jeigu mygtukas “Pridėti” buvo paspaustas 3 kartus select
-// laukelis turi turėti tris pasirinkimus “1 žingsnis”, “2
-// žingsnis”, “3 žingsnis” ir t.t. Istorija turi būti atstatoma iki
-// konkretaus žingsnio.(vietoj useRef čia naudojamas useState
-// istorijai saugoti)
-// 3. Sukurti komponentą su 3 apskritimais, kurie yra rand spalvų ir
-// mygtuką “Keisti”. Apskritimus DOMe pasižymėti naudojant useRef
-// hooką. Paspaudus mygtuką, panaudoti vanilaJS savybę
-// element.style.background ir pakeisti apskritimų spalvas į kitas
-// random spalvas
+// REACT FORMS
 
-/* <div className='kvc'>
-          {
-            aps.map((c, i) => <div ref={apsRand} className='aps' key={i}>{i}</div>)
-          }
-</div> */
+// 1. Sukurti komponentą su mygtuku ir įvedimo laukeliu. Įvedus į
+// laukelį skaičių ir paspaudus mygtuką, atsiranda laukelyje
+// nurodytas raudonų kvadratėlių skaičius. Įvedus kitą skaičių ir
+// paspaudus mygtuką, prie jau egzistuojančių kvadratėlių papildomai
+// prisideda naujas laukelyje nurodytas kvadratėlių kiekis.
+// Kiekvieno kvadratėlio viduryje turi būti pavaizduotas rand
+// skaičius 100 - 200.
+// 2. Sukurti komponentą su dviem įvedimo laukeliais, katinuko vardui
+// ir svoriui įvesti. Rodyti visų įvestų katinukų sąrašą. Puslapiui
+// persikrovus, katinukų sąrašas turi išlikti nepakitęs. Katinukus
+// sąraše rūšiuoti nuo storiausio iki ploniausio. Skaičiuoti ir
+// atvaizduoti bendrą katinukų svorį.
+// 3. Sukurti komponentą su dviem įvedimo laukeliais. Pradžioje viename
+// laukelyje rodyti skaičių 100 kitame 50. Santykis tarp pirmo ir
+// antro laukelio yra 2. Pakeitus skaičius viename kažkuriame
+// laukelyje turi pasikeisti ir skaičius kitame laukelyje taip, kad
+// santykis išliktų nepakitęs.
+// 4. Sukurti komponentą su trim select pasirinkimais ir teksto įvedimo
+// laukeliu. Įvedamas tekstas turi būti atvaizduojamas atskirai
+// komponento apačioje. Select pasirinkimai sudaryti iš 5 skirtingų
+// spalvų, 5 skirtingų fontų dydžių ir 5 skirtingų fontų (Arial,
+// Times new Roman ar panašiai) Select pasirinkimų nustatymai turi
+// keisti atvaizduojamo teksto išvaizdą.
+// 5. Sukurti komponentą su dviem range tipo įvedimais
+// https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/r
+// ange vienu color įvedimu
+// https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/c
+// olor ir mygtukais sukurti ir išsaugoti. Paspaudus mygtuką
+// sukurti, atsiranda naujas kvadratas 100px aukščio ir pločio bei
+// juodu fonu. Keičiant range ir color įvedimus keičiasi ir kvadrato
+// išvaizda. Kvadrato išvaizdą nustato įvedimai: range tipo įvedimai
+// nuo 10 iki 200 ir nustato plotą ir aukštį pikseliais, color- fono
+// spalvą. Paspaudus mygtuką išsaugoti, kvadrato išvaizda išsaugoma
+// ir į nustatymus nebereguoja. Vėl paspaudus mygtuką sukurti atsiranda naujas reguliuojamas kvadratas.
+
+// {
+//   kv.map((c, i) => <div className="kv" key={i}></div>)
+// }

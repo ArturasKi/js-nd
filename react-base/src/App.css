@@ -95,7 +95,7 @@ button {
   white-space: nowrap;
   will-change: box-shadow,transform;
   font-size: 18px;
-  margin: 20px 0px;
+  margin: 20px 20px;
 }
 
 button:focus {

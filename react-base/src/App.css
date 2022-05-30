@@ -116,13 +116,14 @@ button:active {
   margin: 30px;
   padding: 10px;
   border: 4px dashed white;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  display: grid;
   background-color: greenyellow;
+  color: black;
   }
+
+.katinas {
+  width: 100%;
+}
 
 .section {
   display: flex;

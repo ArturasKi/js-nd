@@ -1,0 +1,84 @@
+div {
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ;
+}
+
+.container {
+  width: 100%;
+  display: inline-block;
+  background-color: #282c34;
+  min-height: 100vh;
+}
+
+.row {
+  display: inline-block;
+  width: 100%;
+  margin: 30px 0;
+}
+
+.col-left {
+  flex:0 0 33.333333%;
+  max-width: 33.333333%;
+}
+
+.form-group {
+  display: flex;
+  justify-content:flex-start;
+  margin: 1.2rem;
+  flex-flow: row wrap;
+  align-items: center;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color:#fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0,0,0,.125);
+  border-radius: 1rem;
+  margin-left: 30px;
+}
+
+.card-header {
+  padding: .75rem 1.25rem;
+  margin-bottom: 0;
+  background-color: rgba(0,0,0,.125);
+  border-bottom: 1px solid rgba(0,0,0,.125);
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+
+.card-body {
+  padding: 1rem;
+}
+
+.label {
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  font-size: 16px;
+  color: #777
+}
+
+.input-1 {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #777;
+  border-radius: 0.25rem;
+}
+
+h2 {
+  text-align: center;
+}
+
+small {
+  display: inline-block;
+  width: 100%;
+  margin-top: 10px;
+  text-transform: uppercase;
+  font-size: 12px;
+  color: #777
+}

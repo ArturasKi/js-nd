@@ -1,12 +1,15 @@
 import { useState } from 'react';
 
 
-function Create () {
+function Create ({setCreateData}) {
 
     const [type, setType] = useState(1);
 
-
-
+    const handleCreate = () => {
+      const data = {type};
+      setCreateData(data);
+      setType('1');
+  }
 
     return (
         <>
@@ -18,23 +21,14 @@ function Create () {
               <div className='form-group'>
                 <label className='label'>Scooter model</label>
                 <select value={type} onChange={e => setType(e.target.value)}>
-                  <option>Model K1</option>
-                  <option>Model K2</option>
-                  <option>Model K3</option>
+                  <option value='1'>Model K1</option>
+                  <option value='2'>Model K2</option>
+                  <option value='3'>Model K3</option>
                 </select>
-                <small>Enter scooter model here</small>
+                <small>Select scooter model</small>
               </div>
-              <div className='form-group'>
-                <label className='label'>Scooter ...</label>
-                <input className='input-1' type='text'></input>
-                <small>Enter scooter ... here</small>
-              </div>
-              <div className='form-group'>
-                <label className='label'>Scooter ...</label>
-                <input className='input-1' type='text'></input>
-                <small>Enter scooter ... here</small>
-              </div>
-              <button>Create</button>
+              
+              <button onClick={handleCreate}>Create</button>
             </div>
           </div>
         </>
@@ -42,3 +36,14 @@ function Create () {
 }
 
 export default Create;
+
+/* <div className='form-group'>
+                <label className='label'>Scooter ...</label>
+                <input className='input-1' type='text'></input>
+                <small>Enter scooter ... here</small>
+              </div>
+              <div className='form-group'>
+                <label className='label'>Scooter ...</label>
+                <input className='input-1' type='text'></input>
+                <small>Enter scooter ... here</small>
+              </div> */

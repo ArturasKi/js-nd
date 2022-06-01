@@ -4,18 +4,21 @@ import './App.css';
 import './Crud.scss';
 import Create from './crud/Create';
 import { useEffect, useState } from 'react';
-import { create, read } from './functions/localStorage';
+import { create, read, remove } from './functions/localStorage';
 
 function App() {
 
   const [scooters, setScooters] = useState(null);
   const [createData, setCreateData] = useState(null);
+  const [deleteData, setDeleteData] = useState(null);
   const [lastUpdate, setLastUpdate] = useState(Date.now());
 
+  // READ
   useEffect(() => {
     setScooters(read());
   }, [lastUpdate]);
 
+  // CREATE
   useEffect(() => {
     if (null === createData) {
       return;
@@ -24,6 +27,15 @@ function App() {
     setLastUpdate(Date.now());
   }, [createData]);
 
+  // DELETE
+  useEffect(() => {
+    if (null === deleteData) {
+      return;
+    }
+    remove(deleteData);
+    setLastUpdate(Date.now());
+  }, [deleteData]);
+
   return (
     <div className='container'>
       <div className='row'>
@@ -31,7 +43,7 @@ function App() {
           <Create setCreateData={setCreateData}></Create>
         </div>
         <div className='col-right'>
-          <List scooters={scooters}></List>
+          <List scooters={scooters} setDeleteData={setDeleteData}></List>
         </div>
       </div>
     </div>

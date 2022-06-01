@@ -50,7 +50,7 @@ div {
 .card-header {
   padding: .75rem 1.25rem;
   margin-bottom: 0;
-  background-color: rgba(0,0,0,.125);
+  background-color: peachpuff;
   border-bottom: 1px solid rgba(0,0,0,.125);
   border-top-left-radius: 1rem;
   border-top-right-radius: 1rem;
@@ -122,4 +122,8 @@ small {
 .modal {
   display: block;
   background-color: rgba(11, 63, 95, 0.5);
+}
+
+span {
+  margin-left: 10px;
 }

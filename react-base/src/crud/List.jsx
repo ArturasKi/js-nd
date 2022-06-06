@@ -10,7 +10,7 @@ function List ({scooters, setDeleteData, setModalData}) {
             <div className="card-body">
                 <ul className="list-group">
                     {
-                        scooters ? scooters.map(sc => <Scooter key={sc.id} sc={sc} setDeleteData={setDeleteData} setModalData={setModalData}></Scooter>) : null
+                        scooters === null ? null : scooters.map(sc => <Scooter key={sc.id} sc={sc} setDeleteData={setDeleteData} setModalData={setModalData}></Scooter>)
                     }
                 </ul>
             </div>

@@ -1,34 +1,29 @@
 import { useState } from 'react';
+import makeId from '../functions/makeId';
 
 
 function Create ({setCreateData}) {
 
-    const [type, setType] = useState(1);
+    const [regCode, setRegCode] = useState(makeId());
 
     const handleCreate = () => {
-      const data = {type};
-      setCreateData(data);
-      setType('1');
+      const obj = {regCode, isBusy: false, lastTimeUsed: 'Unused', totalKm: 0};
+      setCreateData(obj);
+      setRegCode(makeId());
   }
 
     return (
         <>
         <div className='card'>
             <div className='card-header'>
-              <h2>Create new "Kolt" scooter</h2>
+              <h2>Welcome to "Kolt" scooters!</h2>
             </div>
             <div className='card-body'>
               <div className='form-group'>
-                <label className='label'>Scooter model</label>
-                <select value={type} onChange={e => setType(e.target.value)}>
-                  <option value='1'>Model K1</option>
-                  <option value='2'>Model K2</option>
-                  <option value='3'>Model K3</option>
-                </select>
-                <small>Select scooter model</small>
+                <label className='label'>Your scooter registration code</label>
+                <input className='input-1' type='text' value={regCode} onChange={e => setRegCode(e.target.value)}/>
               </div>
-              
-              <button className="button" onClick={handleCreate}>Create</button>
+              <button className="button" onClick={handleCreate}>Add new "Kolt"</button>
             </div>
           </div>
         </>

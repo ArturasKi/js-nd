@@ -1,6 +1,5 @@
 // import { useEffect, useState, useRef } from 'react';
 import List from './crud/List';
-import './App.css';
 import './Crud.scss';
 import Create from './crud/Create';
 import { useEffect, useState } from 'react';
@@ -56,7 +55,7 @@ function App() {
             <Create setCreateData={setCreateData}></Create>
           </div>
           <div className='col-right'>
-            <List scooters={scooters} setDeleteData={setDeleteData}></List>
+            <List scooters={scooters} setDeleteData={setDeleteData} setModalData={setModalData}></List>
           </div>
         </div>
       </div>

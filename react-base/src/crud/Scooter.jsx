@@ -1,25 +1,29 @@
 import makeId from '../functions/makeId';
 
-function Scooter ({scooters, setDeleteData}) {
+function Scooter ({sc, setDeleteData, setModalData}) {
 
     const handleDelete = () => {
-        setDeleteData(scooters);
+        setDeleteData(sc);
+    }
+
+    const handleEdit = () => {
+        setModalData(sc);
     }
 
     return (
         <li className="list-group-item">
             <div className="item">
                 <div className="content">
-                    <span>{['Model K1', 'Model K2', 'Model K3'][scooters.type - 1]}</span>
-                    <span>ID: {scooters.id}</span>
+                    <span>{['Model K1', 'Model K2', 'Model K3'][sc.type - 1]}</span>
+                    <span>ID: {sc.id}</span>
                     <span>regCode: {makeId()}</span>
-                    <span>isBusy: {scooters.id}</span>
+                    <span>isBusy: {sc.id}</span>
                     <span>lastUseTime: {Date.now()}</span>
                     <span>totalRideKilometers: {0} km</span>
                 </div>
                 <div className="buttons">
-                    <button>Edit</button>
-                    <button onClick={handleDelete}>Delete</button>
+                    <button className="button" onClick={handleEdit}>Edit</button>
+                    <button className="button" onClick={handleDelete}>Delete</button>
                 </div>
             </div>
         </li>

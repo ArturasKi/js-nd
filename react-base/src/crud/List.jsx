@@ -1,6 +1,7 @@
 import Scooter from "./Scooter";
 
-function List ({scooters, setDeleteData}) {
+function List ({scooters, setDeleteData, setModalData}) {
+
     return (
         <div className="card">
             <div className="card-header">
@@ -9,7 +10,7 @@ function List ({scooters, setDeleteData}) {
             <div className="card-body">
                 <ul className="list-group">
                     {
-                        scooters ? scooters.map(scooters => <Scooter key={scooters.id} scooters={scooters} setDeleteData={setDeleteData}></Scooter>) : null
+                        scooters ? scooters.map(sc => <Scooter key={sc.id} sc={sc} setDeleteData={setDeleteData} setModalData={setModalData}></Scooter>) : null
                     }
                 </ul>
             </div>

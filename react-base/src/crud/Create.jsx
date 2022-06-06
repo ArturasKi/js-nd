@@ -28,7 +28,7 @@ function Create ({setCreateData}) {
                 <small>Select scooter model</small>
               </div>
               
-              <button onClick={handleCreate}>Create</button>
+              <button className="button" onClick={handleCreate}>Create</button>
             </div>
           </div>
         </>

@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 import { create, read, remove, edit } from './functions/localStorage';
 import Edit from './crud/Edit';
 
+
 function App() {
 
   const [scooters, setScooters] = useState(null);

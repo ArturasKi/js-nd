@@ -2,12 +2,18 @@ import { useState } from 'react';
 import makeId from '../functions/makeId';
 
 
+
 function Create ({setCreateData}) {
 
     const [regCode, setRegCode] = useState(makeId());
 
     const handleCreate = () => {
-      const obj = {regCode, isBusy: false, lastTimeUsed: 'Unused', totalKm: 0};
+      const obj = {
+        regCode, 
+        isBusy: false, 
+        lastTimeUsed: '', 
+        totalKm: 0
+      };
       setCreateData(obj);
       setRegCode(makeId());
   }

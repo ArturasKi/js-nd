@@ -1,5 +1,6 @@
 import makeId from '../functions/makeId';
 
+
 function Scooter ({sc, setDeleteData, setModalData}) {
 
     const handleDelete = () => {
@@ -14,11 +15,11 @@ function Scooter ({sc, setDeleteData, setModalData}) {
         <li className="list-group-item">
             <div className="item">
                 <div className="content">
-                    <span>ID: {sc.id}</span>
-                    <span>regCode: {makeId()}</span>
-                    <span>isBusy: Free</span>
-                    <span>lastUseTime: {Date.now()}</span>
-                    <span>totalRideKilometers: {0} km</span>
+                    <span>ID: <b>{sc.id}</b></span>
+                    <span>Reg.code: <b>{sc.regCode}</b></span>
+                    <span>Availability: <b>{sc.isBusy}</b></span>
+                    <span>lastUseTime: {sc.thisDate}</span>
+                    <span>totalRideKilometers: <b>{0}</b>km</span>
                 </div>
                 <div className="buttons">
                     <button className="button" onClick={handleEdit}>Edit</button>

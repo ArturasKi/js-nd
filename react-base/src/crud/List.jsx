@@ -1,5 +1,6 @@
 import Scooter from "./Scooter";
 
+
 function List ({scooters, setDeleteData, setModalData}) {
 
     return (

@@ -1,4 +1,3 @@
-import makeId from '../functions/makeId';
 
 
 function Scooter ({sc, setDeleteData, setModalData}) {
@@ -17,8 +16,8 @@ function Scooter ({sc, setDeleteData, setModalData}) {
                 <div className="content">
                     <span>ID: <b>{sc.id}</b></span>
                     <span>Reg.code: <b>{sc.regCode}</b></span>
-                    <span>Availability: <b>{sc.isBusy}</b></span>
-                    <span>lastUseTime: {sc.thisDate}</span>
+                    <span>Availability: <b>{sc.isBusy === 'Free' ? 'Busy' : 'Free'}</b></span>
+                    <span>lastUseTime: {sc.lastTimeUsed}</span>
                     <span>totalRideKilometers: <b>{0}</b>km</span>
                 </div>
                 <div className="buttons">

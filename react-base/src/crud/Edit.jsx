@@ -4,14 +4,7 @@ import { useEffect, useState } from 'react';
 
 function Edit ({modalData, setModalData, setEditData}) {
 
-    let defaultDate = new Date()
-    defaultDate.setDate(defaultDate.getDate());
-
-
-
-
     const [lastTimeUsed, setLastTimeUsed] = useState('');
-    const [thisDate, setThisDate] = useState(defaultDate);
     const [isBusy, setIsBusy] = useState(0);
     const [distance, setDistance] = useState(0);
 
@@ -21,7 +14,6 @@ function Edit ({modalData, setModalData, setEditData}) {
         }
         setIsBusy(modalData.isBusy);
         setLastTimeUsed(modalData.lastTimeUsed);
-        setThisDate(modalData.thisDate);
         setDistance(modalData.distance);
       }, [modalData]);
       
@@ -32,15 +24,12 @@ function Edit ({modalData, setModalData, setEditData}) {
             regCode: modalData.regCode, 
             isBusy, 
             lastTimeUsed, 
-            thisDate, 
             distance
         };
-
         setEditData(data);
-        // setIsBusy(0);
-        // setLastTimeUsed('');
-        // setThisDate(thisDate);
-        // setDistance(0);
+        setIsBusy(0);
+        setLastTimeUsed('');
+        setDistance(0);
         setModalData(null);
     }
     if (modalData === null) {
@@ -61,18 +50,24 @@ function Edit ({modalData, setModalData, setEditData}) {
                     <div className='form-group'>
                         <label className='label'>ID number:</label>
                         <input className='input-1' type='text' value={modalData.id} onChange={() => modalData.id}/>
+
                         <label className='label'>Registration code:</label>
                         <input className='input-1' type='text' value={modalData.regCode} onChange={() => modalData.regCode}/>
+
                         <label className='label'>Last use time: </label>
-                        <input className='input-1' type='text' value={thisDate}/>
+                        <input className='input-1' type='date' value={modalData.lastTimeUsed} onChange={e => setLastTimeUsed(e.target.value)}/>
+
                         <label className='label'>New date: </label>
-                        <input className='input-1' type='date' onChange={e => setThisDate(new Date(e.target.value))}/>
+                        <input className='input-1' type='date' value={lastTimeUsed} onChange={e => setLastTimeUsed(e.target.value)}/>
+
                         <label className='label'>Total ride km: </label>
                         <input className='input-1' type='text'/>
+
                         <label className='label'>Total distance km: </label>
                         <input className='input-1' type='text'/>
+
                         <label className='label'>Is Busy: </label>
-                        <input className='checkbox' type='checkbox' checked={isBusy} onChange={() => setIsBusy(isBusy ? false : true)}/>
+                        <input className='checkbox' type='checkbox' value={isBusy} checked={isBusy === 'Free'} onChange={() => setIsBusy(isBusy === 'Free' ? 'Busy' : 'Free')}/>
                     </div>
                 </div>
                 <div className="modal-footer">

@@ -116,7 +116,7 @@ small {
   color: #777
 }
 
-span {
+.content span {
   margin-right: 10px;
 }
 
@@ -160,9 +160,10 @@ span {
   overflow: hidden;
   z-index: 1000;
   background-color: rgba(5, 26, 40, 0.5);
-  transition: all 1s;
   top: 0;
   right: 0;
+  left: 0;
+  bottom: 0;
 
   .modal-dialog {
     top: 50%;

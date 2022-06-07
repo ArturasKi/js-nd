@@ -15,10 +15,12 @@ function Scooter ({sc, setDeleteData, setModalData}) {
             <div className="item">
                 <div className="content">
                     <span>ID: <b>{sc.id}</b></span>
-                    <span>Reg.code: <b>{sc.regCode}</b></span>
-                    <span>Availability: <b>{sc.isBusy === 'Free' ? 'Busy' : 'Free'}</b></span>
-                    <span>lastUseTime: {sc.lastTimeUsed}</span>
-                    <span>totalRideKilometers: <b>{0}</b>km</span>
+                    <span>Reg.Code: <b>{sc.regCode}</b></span>
+                    <span >Availability: <b></b></span>
+                    <span className="aps" style={sc.isBusy ? {backgroundColor: 'green', marginLeft: '-15px'} : {backgroundColor: 'red', marginLeft: '-15px'}}>
+                    </span>
+                    <span>Last Use Time: {sc.lastTimeUsed}</span>
+                    <span>Total Ride Kilometers: <b>{sc.totalKm}</b>km</span>
                 </div>
                 <div className="buttons">
                     <button className="button" onClick={handleEdit}>Edit</button>
@@ -30,3 +32,6 @@ function Scooter ({sc, setDeleteData, setModalData}) {
 }
 
 export default Scooter;
+
+//{sc.isBusy ? 'Free' : 'Busy'}
+// style={sc.isBusy ? {color: 'green'} : {color: 'red'}}

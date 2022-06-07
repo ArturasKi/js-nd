@@ -6,7 +6,7 @@ function Edit ({modalData, setModalData, setEditData}) {
 
     const [lastTimeUsed, setLastTimeUsed] = useState('');
     const [isBusy, setIsBusy] = useState(0);
-    const [distance, setDistance] = useState(0);
+    const [totalRideKilometres, setTotalRideKilometres] = useState(0);
 
     useEffect(() => {
         if (null === modalData) {
@@ -14,7 +14,7 @@ function Edit ({modalData, setModalData, setEditData}) {
         }
         setIsBusy(modalData.isBusy);
         setLastTimeUsed(modalData.lastTimeUsed);
-        setDistance(modalData.distance);
+        setTotalRideKilometres(modalData.totalRideKilometres);
       }, [modalData]);
       
 
@@ -22,14 +22,14 @@ function Edit ({modalData, setModalData, setEditData}) {
         const data = {
             id: modalData.id, 
             regCode: modalData.regCode, 
-            isBusy, 
+            isBusy,
             lastTimeUsed, 
-            distance
+            totalKm: Number(modalData.totalKm) + Number(totalRideKilometres)
         };
         setEditData(data);
-        setIsBusy(0);
-        setLastTimeUsed('');
-        setDistance(0);
+        // setIsBusy(isBusy);
+        // setLastTimeUsed('');
+        // setTotalRideKilometres('');
         setModalData(null);
     }
     if (modalData === null) {
@@ -60,14 +60,14 @@ function Edit ({modalData, setModalData, setEditData}) {
                         <label className='label'>New date: </label>
                         <input className='input-1' type='date' value={lastTimeUsed} onChange={e => setLastTimeUsed(e.target.value)}/>
 
-                        <label className='label'>Total ride km: </label>
-                        <input className='input-1' type='text'/>
-
-                        <label className='label'>Total distance km: </label>
-                        <input className='input-1' type='text'/>
+                        <label className='label'>Total km: </label>
+                        <input className='input-1' type='text' value={modalData.totalKm} readOnly/>
+                        
+                        <label className='label'>Ride distance km: </label>
+                        <input className='input-1' type='text' value={totalRideKilometres} onChange={e => setTotalRideKilometres(e.target.value)}/>
 
                         <label className='label'>Is Busy: </label>
-                        <input className='checkbox' type='checkbox' value={isBusy} checked={isBusy === 'Free'} onChange={() => setIsBusy(isBusy === 'Free' ? 'Busy' : 'Free')}/>
+                        <input className='checkbox' type='checkbox' checked={!isBusy} onChange={() => setIsBusy(isBusy ? 0 : 1)}/>
                     </div>
                 </div>
                 <div className="modal-footer">

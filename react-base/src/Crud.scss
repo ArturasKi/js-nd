@@ -58,6 +58,7 @@ div {
   margin-left: 30px;
   margin-right: 30px;
   opacity: 0.95;
+  
 }
 
 .card-header {
@@ -71,11 +72,15 @@ div {
 
 .card-body {
   padding: 1rem;
+  color: #777;
 }
 
 .list-group {
   display: flex;
   flex-direction: column;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .label {
@@ -118,15 +123,24 @@ small {
 
 .content span {
   margin-right: 10px;
+  margin-top: 5px;
+}
+
+.list-group-item:first-child {
+  border-top: 1px solid #777;
 }
 
 .list-group-item {
+  border-bottom: 1px solid #777;
+  
   .item {
       display: flex;
       align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
       width: 100%;
+      
+    
       .content {
           display: flex;
           align-items: center;
@@ -178,7 +192,6 @@ small {
     // border: 1px solid black;
     border-radius: 1rem;
     background-color: #ececec;
-    transition: all 1s;
 
     .modal-content {
       width: 100%;
@@ -218,6 +231,12 @@ small {
 
 .modal-footer {
   margin: 10px;
+}
+
+.aps {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
 }
 
 button {

@@ -5,6 +5,7 @@ import Create from './crud/Create';
 import { useEffect, useState } from 'react';
 import { create, read, remove, edit } from './functions/localStorage';
 import Edit from './crud/Edit';
+import Stats from './crud/Stats';
 
 
 function App() {
@@ -54,6 +55,7 @@ function App() {
         <div className='row'>
           <div className='col-left'>
             <Create setCreateData={setCreateData}></Create>
+            <Stats scooters={scooters}></Stats>
           </div>
           <div className='col-right'>
             <List scooters={scooters} setDeleteData={setDeleteData} setModalData={setModalData}></List>

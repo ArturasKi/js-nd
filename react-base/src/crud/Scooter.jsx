@@ -21,7 +21,7 @@ function Scooter ({sc, setDeleteData, setModalData}) {
                     <span className="aps" style={sc.isBusy ? {backgroundColor: 'green', marginLeft: '-15px'} : {backgroundColor: 'red', marginLeft: '-15px'}}>
                     </span>
                     <span>Last Use Time: {sc.lastTimeUsed}</span>
-                    <span>Total Ride Kilometers: <b>{sc.totalKm}</b>km</span>
+                    <span>Total Ride Kilometers: <b>{sc.totalRideKilometres}</b>km</span>
                 </div>
                 <div className="buttons">
                     <button className="button" onClick={handleEdit}>Edit</button>

@@ -20,7 +20,7 @@ function Create ({setCreateData}) {
 
     return (
         <>
-        <div className='card'>
+          <div className='card'>
             <div className='card-header'>
               <h2>Welcome to "Kolt" scooters!</h2>
             </div>

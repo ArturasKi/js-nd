@@ -23,11 +23,9 @@ function Edit ({modalData, setModalData, setEditData}) {
             regCode: modalData.regCode, 
             isBusy,
             lastTimeUsed, 
-            totalKm: Number(modalData.totalKm) + Number(totalRideKilometres)
+            totalRideKilometres: Number(modalData.totalRideKilometres) + Number(totalRideKilometres),
         };
         setEditData(data);
-        // setIsBusy(isBusy);
-        // setLastTimeUsed('');
         setTotalRideKilometres(0);
         setModalData(null);
     }
@@ -60,7 +58,7 @@ function Edit ({modalData, setModalData, setEditData}) {
                         <input className='input-1' type='date' value={lastTimeUsed} onChange={e => setLastTimeUsed(e.target.value)}/>
 
                         <small>Total km: </small>
-                        <p>{modalData.totalKm}</p>
+                        <p>{modalData.totalRideKilometres}</p>
                         
                         <small>Ride distance km: </small>
                         <input className='input-1' type='number' value={totalRideKilometres} onChange={e => setTotalRideKilometres(e.target.value)}/>

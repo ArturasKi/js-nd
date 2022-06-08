@@ -8,6 +8,7 @@ function Scooter ({sc, setDeleteData, setModalData}) {
 
     const handleEdit = () => {
         setModalData(sc);
+        console.log(sc);
     }
 
     return (

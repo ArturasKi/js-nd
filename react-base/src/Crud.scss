@@ -282,3 +282,14 @@ p {
   color: black;
   margin: 5px 5px 5px 10px;
 }
+
+.btn-block {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 125px;
+  height: fit-content;
+  background-color: #fff;
+  border-radius: 1rem;
+  opacity: 0.95;
+}

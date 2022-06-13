@@ -44,3 +44,14 @@ export function edit(obj) {
     data = JSON.stringify(data);
     localStorage.setItem(key, data);
 }
+
+export function sort(obj) {
+    let data = localStorage.getItem('Sorting');
+    if (null === data) {
+        data = JSON.stringify('1');
+    }
+    data = JSON.parse(data);
+    data = JSON.stringify(data);
+    localStorage.setItem('Sorting', obj);
+    return data;
+}

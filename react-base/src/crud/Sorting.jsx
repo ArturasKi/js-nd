@@ -1,4 +1,4 @@
-import { sort } from "../functions/localStorage";
+import { scootersSort } from "../functions/localStorage";
 
 
 function Sorting({ sortScooters, setSortScooters }) {
@@ -6,17 +6,19 @@ function Sorting({ sortScooters, setSortScooters }) {
     <>
       <div>
         <div>
-          <label>Sort</label>
+          <label>Sort </label>
+          <br/>
           <select
             value={sortScooters}
             onChange={(e) => {
                 setSortScooters(e.target.value);
-                sort(e.target.value);
+                scootersSort(e.target.value);
+                console.log('Opa')
             }}
           >
             <option value="1">ID</option>
             <option value="2">Total km</option>
-            <option value="3">Last time used</option>
+            <option value="3">Last use time</option>
           </select>
         </div>
       </div>

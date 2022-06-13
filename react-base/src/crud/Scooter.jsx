@@ -1,27 +1,27 @@
 
 
-function Scooter ({sc, setDeleteData, setModalData}) {
+function Scooter ({scooter, setDeleteData, setModalData}) {
 
     const handleDelete = () => {
-        setDeleteData(sc);
+        setDeleteData(scooter);
     }
 
     const handleEdit = () => {
-        setModalData(sc);
-        console.log(sc);
+        setModalData(scooter);
+        console.log(scooter);
     }
 
     return (
         <li className="list-group-item">
             <div className="item">
                 <div className="content">
-                    <span>ID: <b>{sc.id}</b></span>
-                    <span>Reg.Code: <b>{sc.regCode}</b></span>
+                    <span>ID: <b>{scooter.id}</b></span>
+                    <span>Reg.Code: <b>{scooter.regCode}</b></span>
                     <span >Availability: <b></b></span>
-                    <span className="aps" style={sc.isBusy ? {backgroundColor: 'green', marginLeft: '-15px'} : {backgroundColor: 'red', marginLeft: '-15px'}}>
+                    <span className="aps" style={scooter.isBusy ? {backgroundColor: 'green', marginLeft: '-15px'} : {backgroundColor: 'red', marginLeft: '-15px'}}>
                     </span>
-                    <span>Last Use Time: {sc.lastTimeUsed}</span>
-                    <span>Total Ride Kilometers: <b>{sc.totalRideKilometres}</b>km</span>
+                    <span>Last Use Time: {scooter.lastTimeUsed}</span>
+                    <span>Total Ride Kilometers: <b>{scooter.totalRideKilometres}</b>km</span>
                 </div>
                 <div className="buttons">
                     <button className="button" onClick={handleEdit}>Edit</button>

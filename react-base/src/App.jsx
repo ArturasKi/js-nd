@@ -51,8 +51,8 @@ function App() {
 
   // SORT
   useEffect(() => {
-    localStorage.getItem("sortType")
-      ? setSortScooters(localStorage.getItem("sortType"))
+    localStorage.getItem("sort_type")
+      ? setSortScooters(localStorage.getItem("sort_type"))
       : setSortScooters("1");
   }, []);
 

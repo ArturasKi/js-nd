@@ -18,9 +18,10 @@ function Sorting({ sortScooters, setSortScooters }) {
               }}
             >
               <option value="1">ID</option>
-              <option value="2">Total km</option>
-              <option value="3">Last used</option>
-              <option value="4">Availability</option>
+              <option value="2">Max km</option>
+              <option value="3">Min km</option>
+              <option value="4">Last used</option>
+              <option value="5">Availability</option>
             </select>
         </div>
       </div>

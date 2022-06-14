@@ -289,10 +289,15 @@ p {
 .select-opt {
   font-size: 14px;
   height: 30px;
-  border-radius: 8px;
+  border-radius: 0.25rem;
   color: #777;
 }
 
 input {
   color: #777;
 }
+
+// svg {
+//   width: 30px;
+//   height: 30px;
+// }

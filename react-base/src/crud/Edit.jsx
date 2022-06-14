@@ -55,7 +55,7 @@ function Edit ({modalData, setModalData, setEditData}) {
                         <p>{modalData.lastTimeUsed}</p>
 
                         <small>New date: </small>
-                        <input className='input-1' type='date' value={lastTimeUsed} onChange={e => setLastTimeUsed(e.target.value)}/>
+                        <input className='input-1' type='date' placeholder="dd-mm-yyyy" value={lastTimeUsed} onChange={e => setLastTimeUsed(e.target.value)}/>
 
                         <small>Total km: </small>
                         <p>{modalData.totalRideKilometres}</p>

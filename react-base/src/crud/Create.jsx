@@ -8,7 +8,7 @@ function Create({ setCreateData }) {
     const obj = {
       regCode,
       isBusy: "Free",
-      lastTimeUsed: "",
+      lastTimeUsed: "yyyy-mm-dd",
       totalRideKilometres: 0,
     };
     setCreateData(obj);

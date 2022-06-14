@@ -43,6 +43,22 @@ function List({ scooters, setDeleteData, setModalData, sortScooters }) {
               ? scooters === null
                 ? null
                 : [...scooters]
+                    .sort(
+                      (a, b) => a.totalRideKilometres - b.totalRideKilometres
+                    )
+                    .map((scooter) => (
+                      <Scooter
+                        key={scooter.id}
+                        scooter={scooter}
+                        setDeleteData={setDeleteData}
+                        setModalData={setModalData}
+                      ></Scooter>
+                    ))
+              : null}
+            {sortScooters === "4"
+              ? scooters === null
+                ? null
+                : [...scooters]
                     .sort((a, b) =>
                       a.lastTimeUsed.localeCompare(b.lastTimeUsed)
                     )
@@ -55,7 +71,7 @@ function List({ scooters, setDeleteData, setModalData, sortScooters }) {
                       ></Scooter>
                     ))
               : null}
-            {sortScooters === "4"
+            {sortScooters === "5"
               ? scooters === null
                 ? null
                 : [...scooters]

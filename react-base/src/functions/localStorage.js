@@ -46,12 +46,12 @@ export function edit(obj) {
 }
 
 export function scootersSort(value) {
-    let data = localStorage.getItem('sortType');
+    let data = localStorage.getItem('sort_type');
     if (null === data) {
         data = JSON.stringify('1');
     }
     data = JSON.parse(data);
     data = JSON.stringify(data);
-    localStorage.setItem('sortType', value);
+    localStorage.setItem('sort_type', value);
     return data;
 }

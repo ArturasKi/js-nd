@@ -17,11 +17,8 @@ function Stats({ scooters }) {
               Total kilometers of scooters:
               <b>{scooters === null
                 ? null
-                : scooters.reduce(
-                    (total, item) =>
-                      total + +Number(item.totalRideKilometres).toPrecision(4),
-                    0
-                  )}{''}
+                : (scooters.reduce((total, item) => (total + (+item.totalRideKilometres)), 0)).toFixed(2)
+                }
               km</b>
             </p>
           </div>

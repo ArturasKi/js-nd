@@ -16,7 +16,7 @@ function App() {
   const [modalData, setModalData] = useState(null);
   const [lastUpdate, setLastUpdate] = useState(Date.now());
   const [sortScooters, setSortScooters] = useState("1");
-  
+
   // READ
   useEffect(() => {
     setScooters(read());
@@ -54,7 +54,7 @@ function App() {
     localStorage.getItem("sortType")
       ? setSortScooters(localStorage.getItem("sortType"))
       : setSortScooters("1");
-  }, []); 
+  }, []);
 
   return (
     <>
@@ -69,8 +69,12 @@ function App() {
             ></Sorting>
           </div>
           <div className="col-right">
-            
-            <List scooters={scooters} setDeleteData={setDeleteData} setModalData={setModalData} sortScooters={sortScooters}></List>
+            <List
+              scooters={scooters}
+              setDeleteData={setDeleteData}
+              setModalData={setModalData}
+              sortScooters={sortScooters}
+            ></List>
           </div>
         </div>
       </div>

@@ -25,8 +25,8 @@ function Scooter({ scooter, setDeleteData, setModalData }) {
             className="aps"
             style={
               scooter.isBusy
-                ? { backgroundColor: "green", marginLeft: "-15px" }
-                : { backgroundColor: "red", marginLeft: "-15px" }
+                ? { backgroundColor: "red", marginLeft: "-15px" }
+                : { backgroundColor: "green", marginLeft: "-15px" }
             }
           ></span>
           <span>Last Use Time: {scooter.lastTimeUsed}</span>

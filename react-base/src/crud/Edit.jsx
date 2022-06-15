@@ -68,7 +68,7 @@ function Edit ({modalData, setModalData, setEditData}) {
                         <input className='input-1' type='number' value={totalRideKilometres} onChange={e => setTotalRideKilometres(e.target.value)}/>
 
                         <small>Is Busy: </small>
-                        <input className='checkbox' type='checkbox' checked={!isBusy} onChange={() => setIsBusy(isBusy ? 0 : 1)}/>
+                        <input className='checkbox' type='checkbox' checked={isBusy} onChange={() => setIsBusy(isBusy ? 0 : 1)}/>
                     </div>
                 </div>
                 <div className="modal-footer">

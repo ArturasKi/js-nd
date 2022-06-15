@@ -4,6 +4,10 @@ import { useEffect, useState } from 'react';
 
 function Edit ({modalData, setModalData, setEditData}) {
 
+    let date = new Date().toLocaleDateString("lt-LT");
+    console.log(date);
+    // // console.log(dateFormat);
+
     const [lastTimeUsed, setLastTimeUsed] = useState('');
     const [isBusy, setIsBusy] = useState(0);
     const [totalRideKilometres, setTotalRideKilometres] = useState(0);
@@ -55,7 +59,7 @@ function Edit ({modalData, setModalData, setEditData}) {
                         <p>{modalData.lastTimeUsed}</p>
 
                         <small>New date: </small>
-                        <input className='input-1' type='date' placeholder="dd-mm-yyyy" value={lastTimeUsed} onChange={e => setLastTimeUsed(e.target.value)}/>
+                        <input className='input-1' type='date' value={lastTimeUsed} onChange={e => setLastTimeUsed(e.target.value)}/>
 
                         <small>Total km: </small>
                         <p>{modalData.totalRideKilometres}</p>

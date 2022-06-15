@@ -23,7 +23,7 @@ function Create({ setCreateData }) {
         </div>
         <div className="card-body">
           <div className="form-group">
-            <label className="label">Your scooter registration code</label>
+            <label className="label">Scooter registration code</label>
             <input
               className="input-1"
               type="text"

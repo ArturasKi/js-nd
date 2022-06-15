@@ -8,7 +8,8 @@ function Sorting({ sortScooters, setSortScooters }) {
           <h2>Sort</h2>
         </div>
         <div className="card-body">
-          <select
+          <div className="form-group">
+            <select
               className="select-opt"
               value={sortScooters}
               onChange={(e) => {
@@ -23,6 +24,7 @@ function Sorting({ sortScooters, setSortScooters }) {
               <option value="4">Last used</option>
               <option value="5">Availability</option>
             </select>
+          </div>
         </div>
       </div>
     </>

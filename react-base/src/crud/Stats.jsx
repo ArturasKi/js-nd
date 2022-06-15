@@ -14,7 +14,7 @@ function Stats({ scooters }) {
           </div>
           <div className="form-group">
             <p>
-              Total kilometers of scooters:
+              Total kilometers:
               <b>{scooters === null
                 ? null
                 : (scooters.reduce((total, item) => (total + (+item.totalRideKilometres)), 0)).toFixed(2)

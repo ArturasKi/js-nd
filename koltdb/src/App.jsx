@@ -26,9 +26,7 @@ function App() {
 
   // CREATE
   useEffect(() => {
-    if (null === createData) {
-      return;
-    }
+    if (null === createData) return;
     axios.post('http://localhost:3003/kolts', createData)
     .then(_ => {
       setLastUpdate(Date.now());
@@ -37,20 +35,21 @@ function App() {
 
   // DELETE
   useEffect(() => {
-    if (null === deleteData) {
-      return;
-    }
-
-    setLastUpdate(Date.now());
+    if (null === deleteData) return;
+    axios.delete('http://localhost:3003/kolts/' + deleteData.id)
+    .then(_ => {
+      setLastUpdate(Date.now());
+      console.log('Deleted!');
+    });
   }, [deleteData]);
 
   // EDIT
   useEffect(() => {
-    if (null === editData) {
-      return;
-    }
-
-    setLastUpdate(Date.now());
+    if (null === editData) return;
+    axios.put('http://localhost:3003/kolts/', + editData.id, editData)
+    .then(_ => {
+      setLastUpdate(Date.now());
+    });
   }, [editData]);
 
   // SORT
@@ -64,7 +63,8 @@ function App() {
   <ScooterContext.Provider value={
     {
     scooters,
-    setCreateData
+    setCreateData,
+    setDeleteData
     }
     }>
       <div className="container">

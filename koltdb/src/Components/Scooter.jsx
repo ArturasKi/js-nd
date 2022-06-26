@@ -1,7 +1,12 @@
+import { useContext } from "react";
+import ScooterContext from "./ScooterContext";
+
 function Scooter({ scooter }) {
 
+  const {setDeleteData} = useContext(ScooterContext);
+
   const handleDelete = () => {
-    // setDeleteData(scooter);
+    setDeleteData(scooter);
   };
 
   const handleEdit = () => {

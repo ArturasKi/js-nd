@@ -6,49 +6,63 @@ app.use(cors());
 const mysql = require("mysql");
 
 app.use(
-    express.urlencoded({
-      extended: true,
-    })
-  );
-  app.use(express.json());
-  
-  const con = mysql.createConnection({
-    // daromas connection prie DB
-    host: "localhost",
-    user: "root",
-    password: "",
-    database: "kolt",
-  });
+  express.urlencoded({
+    extended: true,
+  })
+);
+app.use(express.json());
 
-  app.listen(port, () => {
-    console.log(`Raccoon is listening to ${port}`);
-  });
+const con = mysql.createConnection({
+  // daromas connection prie DB
+  host: "localhost",
+  user: "root",
+  password: "",
+  database: "kolt",
+});
 
+app.listen(port, () => {
+  console.log(`Raccoon is listening to ${port}`);
+});
 
-  //READ
-  app.get("/kolts", (req, res) => {
-    // get - routeris, paimam info is serverio;
-    const sql = `
+//READ
+app.get("/kolts", (req, res) => {
+  // get - routeris, paimam info is serverio;
+  const sql = `
     SELECT
     *
     FROM kolts
     `;
-    con.query(sql, (err, result) => {
-        if (err) throw err;
-        res.send(result);
-      });
-    });
+  con.query(sql, (err, result) => {
+    if (err) throw err;
+    res.send(result);
+  });
+});
 
-    //CREATE
-    app.post('/kolts', (req, res) => {
-        const sql =`
+//CREATE
+app.post("/kolts", (req, res) => {
+  const sql = `
     INSERT INTO kolts
     (regCode, availability, lastUse)
     VALUES (?, ?, ?)
         `;
-    con.query(sql, [req.body.regCode, req.body.availability, req.body.lastUse], (err, result) => {
-        if (err) throw err;
-        res.send(result);
-        });
-    });
-    
+  con.query(
+    sql,
+    [req.body.regCode, req.body.availability, req.body.lastUse],
+    (err, result) => {
+      if (err) throw err;
+      res.send(result);
+    }
+  );
+});
+
+//DELETE
+app.delete("/kolts/:scooterId", (req, res) => {
+  const sql = `
+  DELETE FROM kolts
+  WHERE id = ?
+  `;
+  con.query(sql, [req.params.scooterId], (err, result) => {
+    if (err) throw err;
+    res.send(result);
+  });
+});

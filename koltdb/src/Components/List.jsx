@@ -5,7 +5,7 @@ import ScooterContext from "./ScooterContext";
 function List() {
 
   const {scooters} =useContext(ScooterContext);
-  const {sortScooters} =useContext(ScooterContext);
+  // const {sortScooters} =useContext(ScooterContext);
 
   return (
     <>

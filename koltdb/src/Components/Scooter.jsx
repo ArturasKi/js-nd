@@ -3,14 +3,14 @@ import ScooterContext from "./ScooterContext";
 
 function Scooter({ scooter }) {
 
-  const {setDeleteData} = useContext(ScooterContext);
+  const {setDeleteData, setModalData} = useContext(ScooterContext);
 
   const handleDelete = () => {
     setDeleteData(scooter);
   };
 
   const handleEdit = () => {
-    // setModalData(scooter);
+    setModalData(scooter);
   };
 
   return (

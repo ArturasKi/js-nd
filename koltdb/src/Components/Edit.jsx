@@ -1,8 +1,10 @@
+import { useContext } from 'react';
 import { useEffect, useState } from 'react';
+import ScooterContext from './ScooterContext';
 
+function Edit () {
 
-
-function Edit ({modalData, setModalData, setEditData}) {
+    const { modalData, setModalData, setEditData } = useContext(ScooterContext);
 
     const [lastTimeUsed, setLastTimeUsed] = useState('');
     const [isBusy, setIsBusy] = useState(0);

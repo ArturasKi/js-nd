@@ -30,6 +30,7 @@ function App() {
     axios.post('http://localhost:3003/kolts', createData)
     .then(_ => {
       setLastUpdate(Date.now());
+      console.log('Created!');
     });
   }, [createData]);
 
@@ -46,7 +47,7 @@ function App() {
   // EDIT
   useEffect(() => {
     if (null === editData) return;
-    axios.put('http://localhost:3003/kolts/', + editData.id, editData)
+    axios.put('http://localhost:3003/kolts/' + editData.id, editData)
     .then(_ => {
       setLastUpdate(Date.now());
     });
@@ -64,7 +65,10 @@ function App() {
     {
     scooters,
     setCreateData,
-    setDeleteData
+    setDeleteData,
+    setModalData,
+    modalData,
+    setEditData
     }
     }>
       <div className="container">
@@ -87,11 +91,7 @@ function App() {
           </div>
         </div>
       </div>
-      <Edit
-        setEditData={setEditData}
-        modalData={modalData}
-        setModalData={setModalData}
-      ></Edit>
+      <Edit/>
   </ScooterContext.Provider>
   );
 }

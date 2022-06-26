@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import Create from "./Components/Create";
 import Edit from "./Components/Edit";
 import ScooterContext from "./Components/ScooterContext";
+import axios from 'axios';
 // import Stats from "./Components/Stats";
 // import Sorting from "./Components/Sorting";
 
@@ -19,7 +20,8 @@ function App() {
 
   // READ
   useEffect(() => {
-    setScooters();
+    axios.get('http://localhost:3003/kolts')
+    .then(res => setScooters(res.data));
   }, [lastUpdate]);
 
   // CREATE
@@ -57,7 +59,11 @@ function App() {
   // }, []);
 
   return (
-  <ScooterContext.Provider value={{scooters}}>
+  <ScooterContext.Provider value={
+    {
+    scooters
+    }
+    }>
       <div className="container">
         <div className="row">
           <div className="col-left">

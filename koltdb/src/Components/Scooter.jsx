@@ -6,7 +6,6 @@ function Scooter({ scooter }) {
 
   const handleEdit = () => {
     // setModalData(scooter);
-    console.log(scooter);
   };
 
   return (

@@ -15,19 +15,10 @@ function List() {
         </div>
         <div className="card-body">
           <ul className="list-group">
-            {sortScooters === "1"
-              ? scooters === null
-                ? null
-                : [...scooters]
-                    .sort((a, b) => a.id - b.id)
-                    .map((scooter) => (
-                      <Scooter
-                        key={scooter.id}
-                        scooter={scooter}
-                      ></Scooter>
-                    ))
-              : null}
-            {sortScooters === "2"
+            {
+            scooters ? scooters.map((scooter) => (<Scooter key={scooter.id} scooter={scooter}></Scooter>)) : null
+            }
+            {/* {sortScooters === "2"
               ? scooters === null
                 ? null
                 : [...scooters]
@@ -82,7 +73,7 @@ function List() {
                         scooter={scooter}
                       ></Scooter>
                     ))
-              : null}
+              : null} */}
           </ul>
         </div>
       </div>

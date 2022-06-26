@@ -1,10 +1,11 @@
-function Scooter({ scooter, setDeleteData, setModalData }) {
+function Scooter({ scooter }) {
+
   const handleDelete = () => {
-    setDeleteData(scooter);
+    // setDeleteData(scooter);
   };
 
   const handleEdit = () => {
-    setModalData(scooter);
+    // setModalData(scooter);
     console.log(scooter);
   };
 

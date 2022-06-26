@@ -1,6 +1,12 @@
+import { useContext } from "react";
 import Scooter from "./Scooter";
+import ScooterContext from "./ScooterContext";
 
-function List({ scooters, setDeleteData, setModalData, sortScooters }) {
+function List() {
+
+  const {scooters} =useContext(ScooterContext);
+  const {sortScooters} =useContext(ScooterContext);
+
   return (
     <>
       <div className="card">
@@ -18,8 +24,6 @@ function List({ scooters, setDeleteData, setModalData, sortScooters }) {
                       <Scooter
                         key={scooter.id}
                         scooter={scooter}
-                        setDeleteData={setDeleteData}
-                        setModalData={setModalData}
                       ></Scooter>
                     ))
               : null}
@@ -34,8 +38,6 @@ function List({ scooters, setDeleteData, setModalData, sortScooters }) {
                       <Scooter
                         key={scooter.id}
                         scooter={scooter}
-                        setDeleteData={setDeleteData}
-                        setModalData={setModalData}
                       ></Scooter>
                     ))
               : null}
@@ -50,8 +52,6 @@ function List({ scooters, setDeleteData, setModalData, sortScooters }) {
                       <Scooter
                         key={scooter.id}
                         scooter={scooter}
-                        setDeleteData={setDeleteData}
-                        setModalData={setModalData}
                       ></Scooter>
                     ))
               : null}
@@ -66,8 +66,6 @@ function List({ scooters, setDeleteData, setModalData, sortScooters }) {
                       <Scooter
                         key={scooter.id}
                         scooter={scooter}
-                        setDeleteData={setDeleteData}
-                        setModalData={setModalData}
                       ></Scooter>
                     ))
               : null}
@@ -82,8 +80,6 @@ function List({ scooters, setDeleteData, setModalData, sortScooters }) {
                       <Scooter
                         key={scooter.id}
                         scooter={scooter}
-                        setDeleteData={setDeleteData}
-                        setModalData={setModalData}
                       ></Scooter>
                     ))
               : null}

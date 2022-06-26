@@ -4,6 +4,7 @@ import "./Crud.scss";
 import { useEffect, useState } from "react";
 import Create from "./Components/Create";
 import Edit from "./Components/Edit";
+import ScooterContext from "./Components/ScooterContext";
 // import Stats from "./Components/Stats";
 // import Sorting from "./Components/Sorting";
 
@@ -56,7 +57,7 @@ function App() {
   // }, []);
 
   return (
-    <>
+  <ScooterContext.Provider value={{scooters}}>
       <div className="container">
         <div className="row">
           <div className="col-left">
@@ -82,7 +83,7 @@ function App() {
         modalData={modalData}
         setModalData={setModalData}
       ></Edit>
-    </>
+  </ScooterContext.Provider>
   );
 }
 

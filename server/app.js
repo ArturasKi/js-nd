@@ -38,4 +38,17 @@ app.use(
         res.send(result);
       });
     });
+
+    //CREATE
+    app.post('/kolts', (req, res) => {
+        const sql =`
+    INSERT INTO kolts
+    (regCode, availability, lastUse)
+    VALUES (?, ?, ?)
+        `;
+    con.query(sql, [req.body.regCode, req.body.availability, req.body.lastUse], (err, result) => {
+        if (err) throw err;
+        res.send(result);
+        });
+    });
     

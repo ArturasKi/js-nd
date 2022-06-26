@@ -29,8 +29,10 @@ function App() {
     if (null === createData) {
       return;
     }
-
-    setLastUpdate(Date.now());
+    axios.post('http://localhost:3003/kolts', createData)
+    .then(_ => {
+      setLastUpdate(Date.now());
+    });
   }, [createData]);
 
   // DELETE
@@ -61,13 +63,14 @@ function App() {
   return (
   <ScooterContext.Provider value={
     {
-    scooters
+    scooters,
+    setCreateData
     }
     }>
       <div className="container">
         <div className="row">
           <div className="col-left">
-            <Create setCreateData={setCreateData}></Create>
+            <Create/>
             {/* <Stats scooters={scooters}></Stats> */}
             {/* <Sorting
               sortScooters={sortScooters}

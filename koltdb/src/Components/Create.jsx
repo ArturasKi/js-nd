@@ -1,7 +1,12 @@
+import { useContext } from "react";
 import { useState } from "react";
 import makeId from "../Functions/makeId";
+import ScooterContext from "./ScooterContext";
 
-function Create({ setCreateData }) {
+function Create() {
+
+  const {setCreateData} = useContext(ScooterContext);
+
   const [regCode, setRegCode] = useState(makeId());
 
   const handleCreate = () => {

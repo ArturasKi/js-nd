@@ -7,8 +7,6 @@ import Edit from "./Components/Edit";
 import ScooterContext from "./Components/ScooterContext";
 import Message from "./Components/Message";
 import axios from 'axios';
-import Stats from "./Components/Stats";
-import Sorting from "./Components/Sorting";
 
 function App() {
   const [scooters, setScooters] = useState(null);
@@ -98,11 +96,6 @@ function App() {
         <div className="row">
           <div className="col-left">
             <Create/>
-            <Stats scooters={scooters}></Stats>
-            <Sorting
-              sortScooters={sortScooters}
-              setSortScooters={setSortScooters}
-            ></Sorting>
           </div>
           <div className="col-right">
             <List

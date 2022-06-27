@@ -2,6 +2,8 @@
 import { useContext } from "react";
 import Scooter from "./Scooter";
 import ScooterContext from "./ScooterContext";
+import Sorting from "./Sorting";
+import Stats from "./Stats";
 
 function List() {
 
@@ -14,6 +16,8 @@ function List() {
           <h2>List of scooters</h2>
         </div>
         <div className="card-body">
+          <Stats scooters={scooters}/>
+          <Sorting/>
           <ul className="list-group">
           {sortScooters === "1"
               ? scooters === null
@@ -29,9 +33,6 @@ function List() {
                       ></Scooter>
                     ))
               : null}
-            {/* {
-            scooters ? scooters.map((scooter) => (<Scooter key={scooter.id} scooter={scooter}></Scooter>)) : null
-            } */}
             {sortScooters === "2"
               ? scooters === null
                 ? null

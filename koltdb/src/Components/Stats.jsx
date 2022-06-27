@@ -1,29 +1,39 @@
 function Stats({ scooters }) {
   return (
     <>
-      <div className="card">
-        <div className="card-header">
-          <h2>Basic scooters data</h2>
-        </div>
-        <div className="card-body">
+
           <div className="form-group">
-            <p>
-              Number of scooters:
+            <h5>
+              Number of scooters:{' '}
               <b>{scooters === null ? null : scooters.length}</b>
-            </p>
+            </h5>
           </div>
           <div className="form-group">
-            <p>
-              Total kilometers:
-              <b>{scooters === null
-                ? null
-                : (scooters.reduce((total, item) => (total + (+item.totalRideKilometres)), 0)).toFixed(2)
-                }
-              km</b>
-            </p>
+            <h5>
+              Number of free scooters:{' '}
+              <b>{scooters === null ? null : scooters.reduce(
+                        (total, item) => total + !item.isBusy,
+                        0
+                      )}</b>
+            </h5>
           </div>
-        </div>
-      </div>
+          <div className="form-group">
+            <h5>
+              Total kilometers:{' '}
+              <b>
+                {scooters === null
+                  ? null
+                  : scooters
+                      .reduce(
+                        (total, item) => total + +item.totalRideKilometres,
+                        0
+                      )
+                      .toFixed(2)}{' '}
+                km
+              </b>
+            </h5>
+          </div>
+
     </>
   );
 }

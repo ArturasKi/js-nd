@@ -289,15 +289,20 @@ button:active {
 
 p {
   color: #fff;
-  margin: 5px 5px 5px 10px;
+  margin: 5px 5px 5px 5px;
+}
+
+h5 {
+  margin: 0;
 }
 
 .select-opt {
   font-size: 14px;
+  font-weight: 700;
   height: 30px;
   border-radius: 0.25rem;
   color: #282c34;
-  width: 100%;
+  // width: 100%;
 }
 
 input {

@@ -8,11 +8,7 @@ function Sorting() {
 
   return (
     <>
-      <div className="card">
-        <div className="card-header">
-          <h2>Sort</h2>
-        </div>
-        <div className="card-body">
+
           <div className="form-group">
             <select
               className="select-opt"
@@ -30,8 +26,7 @@ function Sorting() {
               <option value="5">Availability</option>
             </select>
           </div>
-        </div>
-      </div>
+
     </>
   );
 }

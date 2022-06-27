@@ -3,15 +3,14 @@ import { useState } from "react";
 import ColorContext from "./ColorContext";
 
 function Create() {
-
   const { setCreateData } = useContext(ColorContext);
 
-  const [color, setColor] = useState();
+  const [color, setColor] = useState("");
 
   const handleCreate = () => {
     const data = { color };
     setCreateData(data);
-    setColor('');
+    setColor("");
   };
 
   return (

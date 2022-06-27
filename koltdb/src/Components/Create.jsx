@@ -5,9 +5,10 @@ import ScooterContext from "./ScooterContext";
 
 function Create() {
 
-  const {setCreateData} = useContext(ScooterContext);
+  const {setCreateData, colors} = useContext(ScooterContext);
 
   const [regCode, setRegCode] = useState(makeId());
+  const [color, setColor] = useState('0');
 
   const handleCreate = () => {
     const obj = {
@@ -15,9 +16,11 @@ function Create() {
       isBusy: 0,
       lastTimeUsed: "yyyy-mm-dd",
       totalRideKilometres: 0,
+      color
     };
     setCreateData(obj);
     setRegCode(makeId());
+    setColor('0');
   };
 
   return (
@@ -35,6 +38,18 @@ function Create() {
               value={regCode}
               onChange={(e) => setRegCode(e.target.value)}
             />
+          </div>
+          <div className="form-group">
+            <label className="label">Select color</label>
+            <select className="input-1"
+              type="text"
+              value={color}
+              onChange={(e) => setColor(e.target.value)}>
+              <option value='0'>Select color</option>
+              {
+                colors ? colors.map(c => <option key={c.id}>{c.color}</option>) : null
+              }
+            </select>
           </div>
           <button className="button" onClick={handleCreate}>
             Add new "Kolt"

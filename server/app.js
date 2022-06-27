@@ -38,19 +38,42 @@ app.get("/kolts", (req, res) => {
   });
 });
 
+//READ COLOR
+app.get("/colors", (req, res) => {
+  // get - routeris, paimam info is serverio;
+  const sql = `
+    SELECT
+    *
+    FROM colors
+    `;
+  con.query(sql, (err, result) => {
+    if (err) throw err;
+    res.send(result);
+  });
+});
+
 //CREATE SCOOTER
 app.post("/kolts", (req, res) => {
   const sql = `
     INSERT INTO kolts
-    (regCode, isBusy, lastTimeUsed, totalRideKilometres)
-    VALUES (?, ?, ?, ?)
-        `;
+    (regCode, isBusy, lastTimeUsed, totalRideKilometres, color_id)
+    VALUES (?, ?, ?, ?, ?)
+    `;
   con.query(
     sql,
-    [req.body.regCode, req.body.isBusy, req.body.lastTimeUsed, req.body.totalRideKilometres],
+    [
+      req.body.regCode,
+      req.body.isBusy,
+      req.body.lastTimeUsed,
+      req.body.totalRideKilometres,
+      req.body.color !== 0 ? req.body.color : null
+    ],
     (err, result) => {
       if (err) throw err;
-      res.send({ result, msg: { text: 'Scooter has been created!', type: 'success' }}); // gaunamas ats iš serverio;
+      res.send({
+        result,
+        msg: { text: "Scooter has been created!", type: "success" },
+      }); // gaunamas ats iš serverio;
     }
   );
 });
@@ -62,14 +85,13 @@ app.post("/colors", (req, res) => {
     (color)
     VALUES (?)
         `;
-  con.query(
-    sql,
-    [req.body.color],
-    (err, result) => {
-      if (err) throw err;
-      res.send({ result, msg: { text: 'Scooter has been created!', type: 'success' }}); // gaunamas ats iš serverio;
-    }
-  );
+  con.query(sql, [req.body.color], (err, result) => {
+    if (err) throw err;
+    res.send({
+      result,
+      msg: { text: "Color has been created!", type: "success" },
+    }); // gaunamas ats iš serverio;
+  });
 });
 
 //DELETE SCOOTER
@@ -80,7 +102,10 @@ app.delete("/kolts/:scooterId", (req, res) => {
   `;
   con.query(sql, [req.params.scooterId], (err, result) => {
     if (err) throw err;
-    res.send({ result, msg: { text: 'Scooter has been deleted!', type: 'success' }}); 
+    res.send({
+      result,
+      msg: { text: "Scooter has been deleted!", type: "success" },
+    });
   });
 });
 
@@ -91,10 +116,22 @@ app.put("/kolts/:scooterId", (req, res) => {
   SET isBusy = ?, lastTimeUsed = ?, totalRideKilometres = ?
   WHERE id = ?
   `;
-  con.query(sql, [req.body.isBusy, req.body.lastTimeUsed, req.body.totalRideKilometres, req.params.scooterId], (err, result) => {
-    if (err) throw err;
-    res.send({ result, msg: { text: 'Scooter has been edited!', type: 'success' }});
-  });
+  con.query(
+    sql,
+    [
+      req.body.isBusy,
+      req.body.lastTimeUsed,
+      req.body.totalRideKilometres,
+      req.params.scooterId,
+    ],
+    (err, result) => {
+      if (err) throw err;
+      res.send({
+        result,
+        msg: { text: "Scooter has been edited!", type: "success" },
+      });
+    }
+  );
 });
 
 // PAYLOAD -> rodo, ką išsiuntėme į serverį;

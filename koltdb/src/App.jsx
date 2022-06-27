@@ -83,9 +83,14 @@ function App() {
     axios.post('http://localhost:3003/colors', createDataColors)
     .then(_ => {
       setLastUpdate(Date.now());
-      console.log('Created!');
     })
   }, [createDataColors]);
+
+    // READ
+    useEffect(() => {
+      axios.get('http://localhost:3003/colors')
+      .then(res => setColors(res.data));
+    }, [lastUpdate]);
 
 
 
@@ -118,11 +123,13 @@ function App() {
     setEditData,
     message,
     sortScooters,
-    setSortScooters
+    setSortScooters,
+    colors
     }
     }>
     <ColorContext.Provider value={{
-      setCreateData: setCreateDataColors
+      setCreateData: setCreateDataColors,
+      colors
     }}>
       <div className="container">
         <div className="row">

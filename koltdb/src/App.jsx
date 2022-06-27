@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import Create from "./Components/Create";
 import Edit from "./Components/Edit";
 import ScooterContext from "./Components/ScooterContext";
+import Message from "./Components/Message";
 import axios from 'axios';
 // import Stats from "./Components/Stats";
 // import Sorting from "./Components/Sorting";
@@ -92,6 +93,7 @@ function App() {
         </div>
       </div>
       <Edit/>
+      <Message/>
   </ScooterContext.Provider>
   );
 }

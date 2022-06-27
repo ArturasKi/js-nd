@@ -79,3 +79,4 @@ app.put("/kolts/:scooterId", (req, res) => {
     res.send(result);
   });
 });
+// PAYLOAD -> rodo, ką išsiuntėme į serverį;

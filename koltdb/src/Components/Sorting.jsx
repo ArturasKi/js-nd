@@ -1,6 +1,11 @@
-// import { scootersSort } from "../functions/localStorage";
+import { useContext } from "react";
+import { scootersSort } from "../Functions/localStorage";
+import ScooterContext from "./ScooterContext";
 
-function Sorting({ sortScooters, setSortScooters }) {
+function Sorting() {
+
+  const { sortScooters, setSortScooters } = useContext(ScooterContext);
+
   return (
     <>
       <div className="card">
@@ -14,7 +19,7 @@ function Sorting({ sortScooters, setSortScooters }) {
               value={sortScooters}
               onChange={(e) => {
                 setSortScooters(e.target.value);
-                // scootersSort(e.target.value);
+                scootersSort(e.target.value);
                 console.log("Opa");
               }}
             >

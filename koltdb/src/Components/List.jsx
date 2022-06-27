@@ -1,11 +1,11 @@
+// import { useContext } from "react";
 import { useContext } from "react";
 import Scooter from "./Scooter";
 import ScooterContext from "./ScooterContext";
 
 function List() {
 
-  const {scooters} =useContext(ScooterContext);
-  // const {sortScooters} =useContext(ScooterContext);
+  const {scooters, setDeleteData, setModalData, sortScooters} = useContext(ScooterContext);
 
   return (
     <>
@@ -15,10 +15,24 @@ function List() {
         </div>
         <div className="card-body">
           <ul className="list-group">
-            {
+          {sortScooters === "1"
+              ? scooters === null
+                ? null
+                : [...scooters]
+                    .sort((a, b) => a.id - b.id)
+                    .map((scooter) => (
+                      <Scooter
+                        key={scooter.id}
+                        scooter={scooter}
+                        setDeleteData={setDeleteData}
+                        setModalData={setModalData}
+                      ></Scooter>
+                    ))
+              : null}
+            {/* {
             scooters ? scooters.map((scooter) => (<Scooter key={scooter.id} scooter={scooter}></Scooter>)) : null
-            }
-            {/* {sortScooters === "2"
+            } */}
+            {sortScooters === "2"
               ? scooters === null
                 ? null
                 : [...scooters]
@@ -29,6 +43,8 @@ function List() {
                       <Scooter
                         key={scooter.id}
                         scooter={scooter}
+                        setDeleteData={setDeleteData}
+                        setModalData={setModalData}
                       ></Scooter>
                     ))
               : null}
@@ -43,6 +59,8 @@ function List() {
                       <Scooter
                         key={scooter.id}
                         scooter={scooter}
+                        setDeleteData={setDeleteData}
+                        setModalData={setModalData}
                       ></Scooter>
                     ))
               : null}
@@ -57,6 +75,8 @@ function List() {
                       <Scooter
                         key={scooter.id}
                         scooter={scooter}
+                        setDeleteData={setDeleteData}
+                        setModalData={setModalData}
                       ></Scooter>
                     ))
               : null}
@@ -65,15 +85,17 @@ function List() {
                 ? null
                 : [...scooters]
                     .sort((a) =>
-                    a.isBusy ? -1 : 1
+                    a.isBusy ? 1 : -1
                     )
                     .map((scooter) => (
                       <Scooter
                         key={scooter.id}
                         scooter={scooter}
+                        setDeleteData={setDeleteData}
+                        setModalData={setModalData}
                       ></Scooter>
                     ))
-              : null} */}
+              : null}
           </ul>
         </div>
       </div>

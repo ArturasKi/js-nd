@@ -7,8 +7,8 @@ import Edit from "./Components/Edit";
 import ScooterContext from "./Components/ScooterContext";
 import Message from "./Components/Message";
 import axios from 'axios';
-// import Stats from "./Components/Stats";
-// import Sorting from "./Components/Sorting";
+import Stats from "./Components/Stats";
+import Sorting from "./Components/Sorting";
 
 function App() {
   const [scooters, setScooters] = useState(null);
@@ -17,7 +17,7 @@ function App() {
   const [editData, setEditData] = useState(null);
   const [modalData, setModalData] = useState(null);
   const [lastUpdate, setLastUpdate] = useState(Date.now());
-  // const [sortScooters, setSortScooters] = useState("1");
+  const [sortScooters, setSortScooters] = useState("1");
   const [message, setMessage] = useState(null);
 
   // READ
@@ -34,7 +34,10 @@ function App() {
       showMessage(res.data.msg); // iš serverio ateina ats;
       setLastUpdate(Date.now());
       console.log('Created!');
-    });
+    })
+    .catch(error => {
+      showMessage({ text: error.message, type: 'danger' }); // kai bus error, bus rodoma žinutė;
+    })
   }, [createData]);
 
   // DELETE
@@ -65,10 +68,16 @@ function App() {
   }
 
   // SORT
+  useEffect(() => {
+    localStorage.getItem("sort_type")
+      ? setSortScooters(localStorage.getItem("sort_type"))
+      : setSortScooters("1");
+  }, []);
+
+
   // useEffect(() => {
-  //   localStorage.getItem("sort_type")
-  //     ? setSortScooters(localStorage.getItem("sort_type"))
-  //     : setSortScooters("1");
+  // axios.get('http://localhost:3003/kolts')
+  //   .then(res => setSortScooters(res.data.sort_type));
   // }, []);
 
   return (
@@ -80,25 +89,27 @@ function App() {
     setModalData,
     modalData,
     setEditData,
-    message
+    message,
+    sortScooters,
+    setSortScooters
     }
     }>
       <div className="container">
         <div className="row">
           <div className="col-left">
             <Create/>
-            {/* <Stats scooters={scooters}></Stats> */}
-            {/* <Sorting
+            <Stats scooters={scooters}></Stats>
+            <Sorting
               sortScooters={sortScooters}
               setSortScooters={setSortScooters}
-            ></Sorting> */}
+            ></Sorting>
           </div>
           <div className="col-right">
             <List
               scooters={scooters}
               setDeleteData={setDeleteData}
               setModalData={setModalData}
-              // sortScooters={sortScooters}
+              sortScooters={sortScooters}
             ></List>
           </div>
         </div>

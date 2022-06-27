@@ -24,7 +24,7 @@ app.listen(port, () => {
   console.log(`Raccoon is listening to ${port}`);
 });
 
-//READ
+//READ SCOOTER
 app.get("/kolts", (req, res) => {
   // get - routeris, paimam info is serverio;
   const sql = `
@@ -38,7 +38,7 @@ app.get("/kolts", (req, res) => {
   });
 });
 
-//CREATE
+//CREATE SCOOTER
 app.post("/kolts", (req, res) => {
   const sql = `
     INSERT INTO kolts
@@ -55,7 +55,24 @@ app.post("/kolts", (req, res) => {
   );
 });
 
-//DELETE
+//CREATE COLOR
+app.post("/colors", (req, res) => {
+  const sql = `
+    INSERT INTO colors
+    (color)
+    VALUES (?)
+        `;
+  con.query(
+    sql,
+    [req.body.color],
+    (err, result) => {
+      if (err) throw err;
+      res.send({ result, msg: { text: 'Scooter has been created!', type: 'success' }}); // gaunamas ats iš serverio;
+    }
+  );
+});
+
+//DELETE SCOOTER
 app.delete("/kolts/:scooterId", (req, res) => {
   const sql = `
   DELETE FROM kolts
@@ -67,7 +84,7 @@ app.delete("/kolts/:scooterId", (req, res) => {
   });
 });
 
-//EDIT
+//EDIT SCOOTER
 app.put("/kolts/:scooterId", (req, res) => {
   const sql = `
   UPDATE kolts

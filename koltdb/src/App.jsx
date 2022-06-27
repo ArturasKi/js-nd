@@ -7,16 +7,31 @@ import Edit from "./Components/Edit";
 import ScooterContext from "./Components/ScooterContext";
 import Message from "./Components/Message";
 import axios from 'axios';
+import ColorContext from "./Components/colors/ColorContext";
+
+import CreateColors from './Components/colors/Create';
 
 function App() {
+
+  const [lastUpdate, setLastUpdate] = useState(Date.now());
+
+  // SCOOTERS
   const [scooters, setScooters] = useState(null);
   const [createData, setCreateData] = useState(null);
   const [deleteData, setDeleteData] = useState(null);
   const [editData, setEditData] = useState(null);
   const [modalData, setModalData] = useState(null);
-  const [lastUpdate, setLastUpdate] = useState(Date.now());
   const [sortScooters, setSortScooters] = useState("1");
+
+  // COLOR
+  const [colors, setColors] = useState(null);
+  const [createDataColors, setCreateDataColors] = useState(null);
+
+
   const [message, setMessage] = useState(null);
+
+
+  // S C O O T E R S //
 
   // READ
   useEffect(() => {
@@ -60,6 +75,20 @@ function App() {
     });
   }, [editData]);
 
+  // C O L O R S //
+
+  // CREATE
+  useEffect(() => {
+    if (null === createDataColors) return;
+    axios.post('http://localhost:3003/colors', createDataColors)
+    .then(_ => {
+      setLastUpdate(Date.now());
+      console.log('Created!');
+    })
+  }, [createDataColors]);
+
+
+
   const showMessage = msg => {
     setMessage(msg); // set'inam msg, kad pasirodytų;
     setTimeout(() => setMessage(null), 5000); // vienkartinis intervalas, žinutė dingsta už 5s;
@@ -92,10 +121,14 @@ function App() {
     setSortScooters
     }
     }>
+    <ColorContext.Provider value={{
+      setCreateData: setCreateDataColors
+    }}>
       <div className="container">
         <div className="row">
           <div className="col-left">
             <Create/>
+            <CreateColors/>
           </div>
           <div className="col-right">
             <List
@@ -109,6 +142,7 @@ function App() {
       </div>
       <Edit/>
       <Message/>
+  </ColorContext.Provider>
   </ScooterContext.Provider>
   );
 }

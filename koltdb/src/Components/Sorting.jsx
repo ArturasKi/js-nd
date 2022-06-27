@@ -10,6 +10,7 @@ function Sorting() {
     <>
 
           <div className="form-group">
+            <h5>Sort{' '}</h5>
             <select
               className="select-opt"
               value={sortScooters}

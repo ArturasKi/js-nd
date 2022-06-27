@@ -30,8 +30,8 @@ function Scooter({ scooter }) {
             className="aps"
             style={
               scooter.isBusy
-                ? { backgroundColor: "red", marginLeft: "-15px" }
-                : { backgroundColor: "green", marginLeft: "-15px" }
+                ? { backgroundColor: "#FF0000", marginLeft: "-15px" }
+                : { backgroundColor: "#00FF21", marginLeft: "-15px" }
             }
           ></span>
           <span>Last Use Time: {scooter.lastTimeUsed}</span>

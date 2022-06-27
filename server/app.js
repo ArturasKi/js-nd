@@ -50,7 +50,7 @@ app.post("/kolts", (req, res) => {
     [req.body.regCode, req.body.isBusy, req.body.lastTimeUsed, req.body.totalRideKilometres],
     (err, result) => {
       if (err) throw err;
-      res.send(result);
+      res.send({ result, msg: { text: 'Scooter has been created!', type: 'success' }}); // gaunamas ats iš serverio;
     }
   );
 });
@@ -63,7 +63,7 @@ app.delete("/kolts/:scooterId", (req, res) => {
   `;
   con.query(sql, [req.params.scooterId], (err, result) => {
     if (err) throw err;
-    res.send(result);
+    res.send({ result, msg: { text: 'Scooter has been deleted!', type: 'success' }}); 
   });
 });
 
@@ -76,7 +76,8 @@ app.put("/kolts/:scooterId", (req, res) => {
   `;
   con.query(sql, [req.body.isBusy, req.body.lastTimeUsed, req.body.totalRideKilometres, req.params.scooterId], (err, result) => {
     if (err) throw err;
-    res.send(result);
+    res.send({ result, msg: { text: 'Scooter has been edited!', type: 'success' }});
   });
 });
+
 // PAYLOAD -> rodo, ką išsiuntėme į serverį;

@@ -18,6 +18,7 @@ function App() {
   const [modalData, setModalData] = useState(null);
   const [lastUpdate, setLastUpdate] = useState(Date.now());
   // const [sortScooters, setSortScooters] = useState("1");
+  const [message, setMessage] = useState(null);
 
   // READ
   useEffect(() => {
@@ -29,7 +30,8 @@ function App() {
   useEffect(() => {
     if (null === createData) return;
     axios.post('http://localhost:3003/kolts', createData)
-    .then(_ => {
+    .then(res => {
+      showMessage(res.data.msg); // iš serverio ateina ats;
       setLastUpdate(Date.now());
       console.log('Created!');
     });
@@ -39,7 +41,8 @@ function App() {
   useEffect(() => {
     if (null === deleteData) return;
     axios.delete('http://localhost:3003/kolts/' + deleteData.id)
-    .then(_ => {
+    .then(res => {
+      showMessage(res.data.msg);
       setLastUpdate(Date.now());
       console.log('Deleted!');
     });
@@ -49,10 +52,17 @@ function App() {
   useEffect(() => {
     if (null === editData) return;
     axios.put('http://localhost:3003/kolts/' + editData.id, editData)
-    .then(_ => {
+    .then(res => {
+      showMessage(res.data.msg);
       setLastUpdate(Date.now());
+      console.log('Edited!');
     });
   }, [editData]);
+
+  const showMessage = msg => {
+    setMessage(msg); // set'inam msg, kad pasirodytų;
+    setTimeout(() => setMessage(null), 5000); // vienkartinis intervalas, žinutė dingsta už 5s;
+  }
 
   // SORT
   // useEffect(() => {
@@ -69,7 +79,8 @@ function App() {
     setDeleteData,
     setModalData,
     modalData,
-    setEditData
+    setEditData,
+    message
     }
     }>
       <div className="container">

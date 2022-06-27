@@ -42,12 +42,12 @@ app.get("/kolts", (req, res) => {
 app.post("/kolts", (req, res) => {
   const sql = `
     INSERT INTO kolts
-    (regCode, isBusy, lastTimeUsed)
-    VALUES (?, ?, ?)
+    (regCode, isBusy, lastTimeUsed, totalRideKilometres)
+    VALUES (?, ?, ?, ?)
         `;
   con.query(
     sql,
-    [req.body.regCode, req.body.availability, req.body.lastUse],
+    [req.body.regCode, req.body.isBusy, req.body.lastTimeUsed, req.body.totalRideKilometres],
     (err, result) => {
       if (err) throw err;
       res.send(result);
@@ -71,10 +71,10 @@ app.delete("/kolts/:scooterId", (req, res) => {
 app.put("/kolts/:scooterId", (req, res) => {
   const sql = `
   UPDATE kolts
-  SET isBusy = ?, lastTimeUsed = ?
+  SET isBusy = ?, lastTimeUsed = ?, totalRideKilometres = ?
   WHERE id = ?
   `;
-  con.query(sql, [req.body.availability, req.body.lastUse, req.params.scooterId], (err, result) => {
+  con.query(sql, [req.body.isBusy, req.body.lastTimeUsed, req.body.totalRideKilometres, req.params.scooterId], (err, result) => {
     if (err) throw err;
     res.send(result);
   });

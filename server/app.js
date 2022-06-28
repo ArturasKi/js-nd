@@ -137,7 +137,7 @@ app.delete("/colors/:colorId", (req, res) => {
 app.put("/kolts/:scooterId", (req, res) => {
   const sql = `
   UPDATE kolts
-  SET isBusy = ?, lastTimeUsed = ?, totalRideKilometres = ?
+  SET isBusy = ?, lastTimeUsed = ?, totalRideKilometres = ?, color_id = ?
   WHERE id = ?
   `;
   con.query(
@@ -146,6 +146,7 @@ app.put("/kolts/:scooterId", (req, res) => {
       req.body.isBusy,
       req.body.lastTimeUsed,
       req.body.totalRideKilometres,
+      req.body.color,
       req.params.scooterId,
     ],
     (err, result) => {

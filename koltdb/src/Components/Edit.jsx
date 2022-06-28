@@ -4,18 +4,21 @@ import ScooterContext from './ScooterContext';
 
 function Edit () {
 
-    const { modalData, setModalData, setEditData } = useContext(ScooterContext);
+    const { modalData, setModalData, setEditData, colors } = useContext(ScooterContext);
 
     const [lastTimeUsed, setLastTimeUsed] = useState('');
     const [isBusy, setIsBusy] = useState(0);
     const [totalRideKilometres, setTotalRideKilometres] = useState(0);
+    const [color, setColor] = useState('0');
 
     useEffect(() => {
         if (null === modalData) {
           return;
         }
+        console.log(modalData);
         setIsBusy(modalData.isBusy);
         setLastTimeUsed(modalData.lastTimeUsed);
+        setColor(modalData.color ?? 0); //pradinė spalva iš modalo;
       }, [modalData]);
       
 
@@ -26,6 +29,7 @@ function Edit () {
             isBusy,
             lastTimeUsed, 
             totalRideKilometres: Number(modalData.totalRideKilometres) + Number(totalRideKilometres),
+            color
         };
         setEditData(data);
         setTotalRideKilometres(0);
@@ -68,6 +72,18 @@ function Edit () {
                         <small>Is Busy: </small>
                         <input className='checkbox' type='checkbox' checked={isBusy} onChange={() => setIsBusy(isBusy ? 0 : 1)}/>
                     </div>
+                    <div className="form-group">
+                        <label className="label">Select color</label>
+                        <select className="input-1"
+                        type="text"
+                        value={color}
+                        onChange={(e) => setColor(e.target.value)}>
+                        <option value='0'>Select color</option>
+                        {
+                            colors ? colors.map(element => <option key={element.id} value={element.id}>{element.color}</option>) : null
+                        }
+                        </select>
+                     </div>
                 </div>
                 <div className="modal-footer">
                     <button className="button" type="button" onClick={() => setModalData(null)}>Close</button>

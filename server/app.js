@@ -118,6 +118,21 @@ app.delete("/kolts/:scooterId", (req, res) => {
   });
 });
 
+//DELETE COLOR
+app.delete("/colors/:colorId", (req, res) => {
+  const sql = `
+  DELETE FROM colors
+  WHERE id = ?
+  `;
+  con.query(sql, [req.params.colorId], (err, result) => {
+    if (err) throw err;
+    res.send({
+      result,
+      msg: { text: "Color has been deleted!", type: "success" },
+    });
+  });
+});
+
 //EDIT SCOOTER
 app.put("/kolts/:scooterId", (req, res) => {
   const sql = `

@@ -27,6 +27,7 @@ function App() {
   // COLOR
   const [colors, setColors] = useState(null);
   const [createDataColors, setCreateDataColors] = useState(null);
+  const [deleteDataColors, setDeleteDataColors] = useState(null);
 
 
   const [message, setMessage] = useState(null);
@@ -93,6 +94,17 @@ function App() {
       .then(res => setColors(res.data));
     }, [lastUpdate]);
 
+      // DELETE
+  useEffect(() => {
+    if (null === deleteDataColors) return;
+    axios.delete('http://localhost:3003/colors/' + deleteDataColors.id)
+    .then(res => {
+      showMessage(res.data.msg);
+      setLastUpdate(Date.now());
+      console.log('Deleted!');
+    });
+  }, [deleteDataColors]);
+
 
 
   const showMessage = msg => {
@@ -131,7 +143,8 @@ function App() {
     }>
     <ColorContext.Provider value={{
       setCreateData: setCreateDataColors,
-      colors
+      colors,
+      setDeleteData: setDeleteDataColors
     }}>
       <div className="container">
         <div className="row">

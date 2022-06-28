@@ -36,11 +36,9 @@ function Scooter({ scooter, color }) {
           ></span>
           <span>Last Use Time: <i><b>{scooter.lastTimeUsed}</b></i></span>
           <span>
-            Total Ride Kilometers: <i><b>{scooter.totalRideKilometres}</b></i>km
+            Total Ride Kilometers: <i><b>{scooter.totalRideKilometres.toFixed(2)}</b></i>km
           </span>
-          <span>
-            Color:
-          </span>
+          <span>Color:</span>
           <span className="kv" style={{backgroundColor: scooter.color}}></span>
         </div>
         <div className="buttons">

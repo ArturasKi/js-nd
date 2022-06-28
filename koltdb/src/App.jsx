@@ -10,6 +10,7 @@ import axios from 'axios';
 import ColorContext from "./Components/colors/ColorContext";
 
 import CreateColors from './Components/colors/Create';
+import ListColors from './Components/colors/List';
 
 function App() {
 
@@ -137,6 +138,7 @@ function App() {
           <div className="col-left">
             <Create/>
             <CreateColors/>
+            <ListColors/>
           </div>
           <div className="col-right">
             <List/>

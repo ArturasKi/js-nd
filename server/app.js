@@ -49,8 +49,11 @@ app.get("/colors", (req, res) => {
   // get - routeris, paimam info is serverio;
   const sql = `
     SELECT
-    *
-    FROM colors
+    c.color, c.id, COUNT(k.id) AS kolts_count
+    FROM kolts AS k
+    RIGHT JOIN colors AS c
+    ON k.color_id = c.id
+    GROUP BY c.id
     `;
   con.query(sql, (err, result) => {
     if (err) throw err;

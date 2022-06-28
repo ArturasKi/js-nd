@@ -47,7 +47,7 @@ function Create() {
               onChange={(e) => setColor(e.target.value)}>
               <option value='0'>Select color</option>
               {
-                colors ? colors.map(c => <option key={c.id}>{c.color}</option>) : null
+                colors ? colors.map(c => <option key={c.id} value={c.id}>{c.color}</option>) : null
               }
             </select>
           </div>

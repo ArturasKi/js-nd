@@ -18,10 +18,10 @@ function Scooter({ scooter, color }) {
       <div className="item">
         <div className="content">
           <span>
-            ID: <b>{scooter.id}</b>
+            ID: <i><b>{scooter.id}</b></i>
           </span>
           <span>
-            Reg.Code: <b>{scooter.regCode}</b>
+            Reg.Code: <i><b>{scooter.regCode}</b></i>
           </span>
           <span>
             Availability: <b></b>
@@ -34,14 +34,14 @@ function Scooter({ scooter, color }) {
                 : { backgroundColor: "#00FF21", marginLeft: "-15px" }
             }
           ></span>
-          <span>Last Use Time: {scooter.lastTimeUsed}</span>
+          <span>Last Use Time: <i><b>{scooter.lastTimeUsed}</b></i></span>
           <span>
-            Total Ride Kilometers: <b>{scooter.totalRideKilometres}</b>km
+            Total Ride Kilometers: <i><b>{scooter.totalRideKilometres}</b></i>km
           </span>
           <span>
             Color:
           </span>
-          <span className="aps" style={{backgroundColor: scooter.color}}></span>
+          <span className="kv" style={{backgroundColor: scooter.color}}></span>
         </div>
         <div className="buttons">
           <button className="button" onClick={handleEdit}>

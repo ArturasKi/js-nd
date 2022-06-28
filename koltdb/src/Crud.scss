@@ -131,18 +131,16 @@ small {
   color: #fff
 }
 
-
-
 .content span {
   margin: 10px;
 }
 
 .list-group-item:first-child {
-  border-top: 1px solid #777;
+  border-top: 1px solid rgb(78, 76, 76)
 }
 
 .list-group-item {
-  border-bottom: 1px solid #777;
+  border-bottom: 1px solid rgb(78, 76, 76);
   
   .item {
       display: flex;
@@ -150,8 +148,6 @@ small {
       justify-content: space-between;
       flex-wrap: wrap;
       width: 100%;
-      
-    
       .content {
           display: flex;
           align-items: center;
@@ -167,9 +163,6 @@ small {
       }
       b {
           margin-right: 15px;
-      }
-      i {
-          margin-left: 15px;
       }
   }
 }
@@ -245,9 +238,19 @@ small {
 }
 
 .aps {
-  width: 15px;
-  height: 15px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
+}
+
+.kv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  margin: 7px;
+  border-radius: 2px;
 }
 
 button {
@@ -329,3 +332,4 @@ input {
   // text-transform: uppercase;
   opacity: 0.9;
 }
+

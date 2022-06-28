@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import ScooterContext from "./ScooterContext";
 
-function Scooter({ scooter }) {
+function Scooter({ scooter, color }) {
 
   const {setDeleteData, setModalData} = useContext(ScooterContext);
 
@@ -38,6 +38,10 @@ function Scooter({ scooter }) {
           <span>
             Total Ride Kilometers: <b>{scooter.totalRideKilometres}</b>km
           </span>
+          <span>
+            Color:
+          </span>
+          <span className="aps" style={{backgroundColor: scooter.color}}></span>
         </div>
         <div className="buttons">
           <button className="button" onClick={handleEdit}>

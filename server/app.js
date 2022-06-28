@@ -25,12 +25,18 @@ app.listen(port, () => {
 });
 
 //READ SCOOTER
+// SELECT column_name(s)
+// FROM table1
+// LEFT JOIN table2
+// ON table1.column_name = table2.column_name;
 app.get("/kolts", (req, res) => {
   // get - routeris, paimam info is serverio;
   const sql = `
     SELECT
-    *
-    FROM kolts
+    k.id, k.regCode, c.color, isBusy, lastTimeUsed, totalRideKilometres
+    FROM kolts AS k
+    LEFT JOIN colors AS c
+    ON k.color_id = c.id
     `;
   con.query(sql, (err, result) => {
     if (err) throw err;

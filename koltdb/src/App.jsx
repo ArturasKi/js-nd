@@ -124,6 +124,7 @@ function App() {
     message,
     sortScooters,
     setSortScooters,
+    setColors,
     colors
     }
     }>
@@ -138,12 +139,7 @@ function App() {
             <CreateColors/>
           </div>
           <div className="col-right">
-            <List
-              scooters={scooters}
-              setDeleteData={setDeleteData}
-              setModalData={setModalData}
-              sortScooters={sortScooters}
-            ></List>
+            <List/>
           </div>
         </div>
       </div>

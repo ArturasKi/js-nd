@@ -27,7 +27,7 @@ function Create() {
             />
           </div>
           <button className="button" onClick={handleCreate}>
-            Add color
+            Add new color
           </button>
         </div>
       </div>

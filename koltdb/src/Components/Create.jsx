@@ -11,14 +11,14 @@ function Create() {
   const [color, setColor] = useState('0');
 
   const handleCreate = () => {
-    const obj = {
+    const data = {
       regCode,
       isBusy: 0,
       lastTimeUsed: "yyyy-mm-dd",
       totalRideKilometres: 0,
       color
     };
-    setCreateData(obj);
+    setCreateData(data);
     setRegCode(makeId());
     setColor('0');
   };
@@ -45,9 +45,9 @@ function Create() {
               type="text"
               value={color}
               onChange={(e) => setColor(e.target.value)}>
-              <option value='0'>Select color</option>
+              <option value='0' disabled>Select color</option>
               {
-                colors ? colors.map(c => <option key={c.id} value={c.id}>{c.color}</option>) : null
+                colors ? colors.map(element => <option key={element.id} value={element.id}>{element.color}</option>) : null
               }
             </select>
           </div>

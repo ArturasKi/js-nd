@@ -54,6 +54,7 @@ app.get("/colors", (req, res) => {
     RIGHT JOIN colors AS c
     ON k.color_id = c.id
     GROUP BY c.id
+    ORDER BY kolts_count DESC
     `;
   con.query(sql, (err, result) => {
     if (err) throw err;

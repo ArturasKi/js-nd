@@ -18,7 +18,7 @@ function Color({ color }) {
         </div>
         <div className="buttons">
           {
-          color.kolts_count ? '(' + color.kolts_count + ')' : <button type="button" className="button" onClick={handleDelete}>Delete</button>
+          color.kolts_count ? '(' + color.kolts_count + ')' : <button type="button" className="button" onClick={handleDelete}>Delete</button> // jei yra priskirtos spalvos, rodo kiekį, jei ne - atsiranda 'Delete' mygtukas;
           }
         </div>
       </div>

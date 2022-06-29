@@ -62,6 +62,23 @@ app.get("/colors", (req, res) => {
   });
 });
 
+app.get("/front/colors", (req, res) => {
+  // get - routeris, paimam info is serverio;
+  const sql = `
+    SELECT
+    c.color, c.id, COUNT(k.id) AS kolts_count
+    FROM kolts AS k
+    RIGHT JOIN colors AS c
+    ON k.color_id = c.id
+    GROUP BY c.id
+    ORDER BY kolts_count DESC
+    `;
+  con.query(sql, (err, result) => {
+    if (err) throw err;
+    res.send(result);
+  });
+});
+
 //CREATE SCOOTER
 app.post("/kolts", (req, res) => {
   const sql = `

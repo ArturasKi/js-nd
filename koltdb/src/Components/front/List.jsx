@@ -1,6 +1,6 @@
 import { useContext } from "react";
-import Color from "../front/Color";
-import FrontContext from "../front/FrontContext";
+import Color from "./Color";
+import FrontContext from "./FrontContext";
 
 function List() {
 

@@ -29,9 +29,7 @@ function App() {
   const [createDataColors, setCreateDataColors] = useState(null);
   const [deleteDataColors, setDeleteDataColors] = useState(null);
 
-
   const [message, setMessage] = useState(null);
-
 
   // S C O O T E R S //
 

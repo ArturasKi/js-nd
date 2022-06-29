@@ -17,9 +17,9 @@ function Color({ color }) {
           <span className="kv" style={{backgroundColor: color.color}}></span>
         </div>
         <div className="buttons">
-          <button className="button" onClick={handleDelete}>
-            Delete
-          </button>
+          {
+          color.kolts_count ? '(' + color.kolts_count + ')' : <button type="button" className="button" onClick={handleDelete}>Delete</button>
+          }
         </div>
       </div>
     </li>

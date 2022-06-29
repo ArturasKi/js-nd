@@ -91,7 +91,10 @@ function App() {
     // READ
     useEffect(() => {
       axios.get('http://localhost:3003/colors')
-      .then(res => setColors(res.data));
+      .then(res => {
+        console.log(res.data);
+        setColors(res.data);
+      });
     }, [lastUpdate]);
 
       // DELETE

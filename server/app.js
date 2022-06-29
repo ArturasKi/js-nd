@@ -75,7 +75,7 @@ app.post("/kolts", (req, res) => {
       req.body.isBusy,
       req.body.lastTimeUsed,
       req.body.totalRideKilometres,
-      req.body.color !== 0 ? req.body.color : null
+      req.body.color !== '0' ? req.body.color : null
     ],
     (err, result) => {
       if (err) throw err;

@@ -18,7 +18,7 @@ function Edit () {
         console.log(modalData);
         setIsBusy(modalData.isBusy);
         setLastTimeUsed(modalData.lastTimeUsed);
-        setColor(modalData.color ?? 0); //pradinė spalva iš modalo;
+        setColor(colors.filter(c => modalData.color === c.color)[0]?.id ?? 0); //pradinė spalva iš modalo atsidarius 'Edit'; imamas obj, bet nerandamas ir priskiriamas null, kai obj? => kai obj nerandamas priskiriamas undefined;
       }, [modalData]);
       
 

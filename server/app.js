@@ -81,6 +81,22 @@ app.get("/front/colors", (req, res) => {
   });
 });
 
+//READ SCOOTER in FRONT
+app.get("/front/kolts", (req, res) => {
+  // get - routeris, paimam info is serverio;
+  const sql = `
+    SELECT
+    k.id, k.regCode, c.color, isBusy, lastTimeUsed, totalRideKilometres
+    FROM kolts AS k
+    LEFT JOIN colors AS c
+    ON k.color_id = c.id
+    `;
+  con.query(sql, (err, result) => {
+    if (err) throw err;
+    res.send(result);
+  });
+});
+
 //CREATE SCOOTER
 app.post("/kolts", (req, res) => {
   const sql = `

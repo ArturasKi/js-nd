@@ -1,4 +1,5 @@
 import axios from "axios";
+import "./Crud.scss";
 import { useEffect, useState } from "react";
 import FrontContext from "./Components/front/FrontContext";
 import FrontList from "./Components/front/List";

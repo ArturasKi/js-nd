@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useContext } from "react";
 import FrontContext from "./FrontContext";
 
@@ -5,13 +6,15 @@ function Scooter({ scooter, color }) {
 
   const {setDeleteData, setModalData} = useContext(FrontContext);
 
+  const [comment, setComment] = useState(null);
+
   const handleComment = () => {
     
   }
 
   return (
     <li className="list-group-item">
-      <div className="item">
+      <div className="item-front">
         <div className="content">
           <span>
             ID: <i><b>{scooter.id}</b></i>
@@ -37,11 +40,16 @@ function Scooter({ scooter, color }) {
           <span>Color:</span>
           <span className="kv" style={{backgroundColor: scooter.color}}></span>
         </div>
-        <div className="buttons">
-          <button className="button" onClick={handleComment}>
-            Add comment
-          </button>
+        <div className="content">
+          <label className="label">Enter your comment here</label>
+          <textarea value={comment} onChange={e => setComment(e.target.value)}></textarea>
+          <div className="buttons">
+            <button className="button" onClick={handleComment}>
+              Add comment
+            </button>
+          </div>
         </div>
+        
       </div>
     </li>
   );

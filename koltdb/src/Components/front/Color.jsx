@@ -6,6 +6,11 @@ function Color({ color }) {
         <div className="content">
           <span>{color.color}</span>
           <span className="kv" style={{backgroundColor: color.color}}></span>
+          <ul className="list-group">
+            {
+            color.kolt_id ? color.kolt_id.split(',').map((k, i) => <li className="element" key={i}>{k}</li>) : null
+            }
+          </ul>
         </div>
       </div>
     </li>

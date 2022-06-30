@@ -1,11 +1,13 @@
 import { useContext } from "react";
-import Color from "../front/Color";
-import FrontContext from "../front/FrontContext";
+import Color from "./Color";
+import ColorContext from "./ColorContext";
 
 function List() {
 
-  const {colors} = useContext(FrontContext);
+  const {colors} = useContext(ColorContext); // iš providerio info patenka į const;
 
+  console.log(colors);
+  
   return (
     <>
       <div className="card">
@@ -15,7 +17,7 @@ function List() {
         <div className="card-body">
           <ul className="list-group">
             {
-            colors ? colors.map((color) => (<Color key={color.id} color={color}></Color>)) : null
+            colors ? colors.map((color) => (<Color key={color.id} color={color}></Color>)) : null // map'inam paimtą info iš const;
             }
           </ul>
         </div>

@@ -44,7 +44,7 @@ app.get("/kolts", (req, res) => {
   });
 });
 
-//READ COLOR
+//READ COLOR in BACK
 app.get("/colors", (req, res) => {
   // get - routeris, paimam info is serverio;
   const sql = `
@@ -62,16 +62,18 @@ app.get("/colors", (req, res) => {
   });
 });
 
+//READ COLOR in FRONT
 app.get("/front/colors", (req, res) => {
   // get - routeris, paimam info is serverio;
+  // GROUP_CONCAT() function returns a string with concatenated non-NULL value from a group. Returns NULL when there are no non-NULL values.
   const sql = `
     SELECT
-    c.color, c.id, COUNT(k.id) AS kolts_count
+    c.color, c.id, COUNT(k.id) AS kolts_count, GROUP_CONCAT(k.id) AS kolt_id
     FROM kolts AS k
     RIGHT JOIN colors AS c
     ON k.color_id = c.id
     GROUP BY c.id
-    ORDER BY kolts_count DESC
+    ORDER BY c.color
     `;
   con.query(sql, (err, result) => {
     if (err) throw err;

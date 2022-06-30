@@ -11,7 +11,9 @@ function App() {
                 <Route path='/admin' element={<Back/>}/>
             </Routes>
         </BrowserRouter>
-    )
+
+   
+        );
 }
 
 export default App;

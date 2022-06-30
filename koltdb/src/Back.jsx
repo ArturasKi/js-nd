@@ -6,14 +6,13 @@ import Create from "./Components/Create";
 import Edit from "./Components/Edit";
 import ScooterContext from "./Components/ScooterContext";
 import Message from "./Components/Message";
-import axios from 'axios';
+import axios from "axios";
 import ColorContext from "./Components/colors/ColorContext";
 
-import CreateColors from './Components/colors/Create';
-import ListColors from './Components/colors/List';
+import CreateColors from "./Components/colors/Create";
+import ListColors from "./Components/colors/List";
 
-function App() {
-
+function Back() {
   const [lastUpdate, setLastUpdate] = useState(Date.now());
 
   // SCOOTERS
@@ -35,44 +34,46 @@ function App() {
 
   // READ
   useEffect(() => {
-    axios.get('http://localhost:3003/kolts')
-    .then(res => setScooters(res.data));
+    axios
+      .get("http://localhost:3003/kolts")
+      .then((res) => setScooters(res.data));
   }, [lastUpdate]);
 
   // CREATE
   useEffect(() => {
     if (null === createData) return;
-    axios.post('http://localhost:3003/kolts', createData)
-    .then(res => {
-      showMessage(res.data.msg); // iš serverio ateina ats;
-      setLastUpdate(Date.now());
-      console.log('Created!');
-    })
-    .catch(error => {
-      showMessage({ text: error.message, type: 'danger' }); // kai bus error, bus rodoma žinutė;
-    })
+    axios
+      .post("http://localhost:3003/kolts", createData)
+      .then((res) => {
+        showMessage(res.data.msg); // iš serverio ateina ats;
+        setLastUpdate(Date.now());
+        console.log("Created!");
+      })
+      .catch((error) => {
+        showMessage({ text: error.message, type: "danger" }); // kai bus error, bus rodoma žinutė;
+      });
   }, [createData]);
 
   // DELETE
   useEffect(() => {
     if (null === deleteData) return;
-    axios.delete('http://localhost:3003/kolts/' + deleteData.id)
-    .then(res => {
+    axios.delete("http://localhost:3003/kolts/" + deleteData.id).then((res) => {
       showMessage(res.data.msg);
       setLastUpdate(Date.now());
-      console.log('Deleted!');
+      console.log("Deleted!");
     });
   }, [deleteData]);
 
   // EDIT
   useEffect(() => {
     if (null === editData) return;
-    axios.put('http://localhost:3003/kolts/' + editData.id, editData)
-    .then(res => {
-      showMessage(res.data.msg);
-      setLastUpdate(Date.now());
-      console.log('Edited!');
-    });
+    axios
+      .put("http://localhost:3003/kolts/" + editData.id, editData)
+      .then((res) => {
+        showMessage(res.data.msg);
+        setLastUpdate(Date.now());
+        console.log("Edited!");
+      });
   }, [editData]);
 
   // C O L O R S //
@@ -80,38 +81,35 @@ function App() {
   // CREATE
   useEffect(() => {
     if (null === createDataColors) return;
-    axios.post('http://localhost:3003/colors', createDataColors)
-    .then(_ => {
+    axios.post("http://localhost:3003/colors", createDataColors).then((_) => {
       setLastUpdate(Date.now());
-    })
+    });
   }, [createDataColors]);
 
-    // READ
-    useEffect(() => {
-      axios.get('http://localhost:3003/colors')
-      .then(res => {
-        console.log(res.data);
-        setColors(res.data);
-      });
-    }, [lastUpdate]);
+  // READ
+  useEffect(() => {
+    axios.get("http://localhost:3003/colors").then((res) => {
+      console.log(res.data);
+      setColors(res.data);
+    });
+  }, [lastUpdate]);
 
-      // DELETE
+  // DELETE
   useEffect(() => {
     if (null === deleteDataColors) return;
-    axios.delete('http://localhost:3003/colors/' + deleteDataColors.id)
-    .then(res => {
-      showMessage(res.data.msg);
-      setLastUpdate(Date.now());
-      console.log('Deleted!');
-    });
+    axios
+      .delete("http://localhost:3003/colors/" + deleteDataColors.id)
+      .then((res) => {
+        showMessage(res.data.msg);
+        setLastUpdate(Date.now());
+        console.log("Deleted!");
+      });
   }, [deleteDataColors]);
 
-
-
-  const showMessage = msg => {
+  const showMessage = (msg) => {
     setMessage(msg); // set'inam msg, kad pasirodytų;
     setTimeout(() => setMessage(null), 5000); // vienkartinis intervalas, žinutė dingsta už 5s;
-  }
+  };
 
   // SORT
   useEffect(() => {
@@ -120,53 +118,54 @@ function App() {
       : setSortScooters("1");
   }, []);
 
-
   // useEffect(() => {
   // axios.get('http://localhost:3003/kolts')
   //   .then(res => setSortScooters(res.data.sort_type));
   // }, []);
 
   return (
-  <ScooterContext.Provider value={
-    {
-    scooters,
-    setCreateData,
-    setDeleteData,
-    setModalData,
-    modalData,
-    setEditData,
-    message,
-    sortScooters,
-    setSortScooters,
-    setColors,
-    colors
-    }
-    }>
-    <ColorContext.Provider value={{
-      setCreateData: setCreateDataColors,
-      colors,
-      setDeleteData: setDeleteDataColors
-    }}>
-      <div className="container">
-        <div className="row">
-          <div className="col-left">
-            <Create/>
-            <CreateColors/>
-            <ListColors/>
+    <ScooterContext.Provider
+      value={{
+        scooters,
+        setCreateData,
+        setDeleteData,
+        setModalData,
+        modalData,
+        setEditData,
+        message,
+        sortScooters,
+        setSortScooters,
+        setColors,
+        colors
+      }}
+    >
+      <ColorContext.Provider
+        value={{
+          setCreateData: setCreateDataColors,
+          colors,
+          setDeleteData: setDeleteDataColors
+        }}
+      >
+        <div className="container">
+          <div className="row">
+            <div className="col-left">
+              <Create />
+              <CreateColors />
+              <ListColors />
+            </div>
+            <div className="col-right">
+              <List />
+            </div>
           </div>
-          <div className="col-right">
-            <List/>
-          </div>
-        </div>
-      </div>
-      <Edit/>
-      <Message/>
-  </ColorContext.Provider>
-  </ScooterContext.Provider>
+        </div> 
+        <Edit />
+        <Message />
+      </ColorContext.Provider>
+    </ScooterContext.Provider>
   );
 }
 
-export default App;
+export default Back;
 
 // Paspirtuko modelis;
 //

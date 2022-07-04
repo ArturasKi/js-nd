@@ -4,12 +4,15 @@ import FrontContext from "./FrontContext";
 
 function Scooter({ scooter, color }) {
 
-  const {setDeleteData, setModalData} = useContext(FrontContext);
+  const {setCreateComment} = useContext(FrontContext);
 
-  const [comment, setComment] = useState(null);
+  const [comment, setComment] = useState('');
 
   const handleComment = () => {
-    
+    setCreateComment({comment, scooterId: scooter.id}); 
+    // kai paspaudžiamas mygtukas 'comment' nukeliauja į front, useEffect'e pasikeičia createComment;
+    // taip pat perduodamas scooterId: scooter.id, kad žinotume, kokiam paspirtukui komentaras priklauso;
+    setComment(''); // kai išsiunčiam komentarą - panaikinam textarea komentaro tekstą;
   }
 
   return (
@@ -41,12 +44,17 @@ function Scooter({ scooter, color }) {
           <span className="kv" style={{backgroundColor: scooter.color}}></span>
         </div>
         <div className="content">
-          <label className="label">Enter your comment here</label>
-          <textarea value={comment} onChange={e => setComment(e.target.value)}></textarea>
+          <label className="textarea-label">Enter your comment here</label>
+          <textarea className="textarea-input" value={comment} onChange={e => setComment(e.target.value)}></textarea>
           <div className="buttons">
             <button className="button" onClick={handleComment}>
               Add comment
             </button>
+          </div>
+          <div>
+            {
+            scooter.comment ? scooter.comment?.slice(0, -5).split( '-^o^-,').map((c, i) => <li key={i}>{comment}</li>) : null
+            }
           </div>
         </div>
         

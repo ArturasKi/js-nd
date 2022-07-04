@@ -147,7 +147,7 @@ function Back() {
           setDeleteData: setDeleteDataColors
         }}
       >
-        <Nav></Nav>
+        <Nav/>
         <div className="container">
           <div className="row">
             <div className="col-left">

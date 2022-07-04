@@ -9,6 +9,7 @@ import Nav from './Components/Nav';
 function Front() {
   const [colors, setColors] = useState(null);
   const [scooters, setScooters] = useState(null);
+  const [createComment, setCreateComment] = useState(null);
 
   // READ COLORS
   useEffect(() => {
@@ -30,14 +31,23 @@ function Front() {
       });
   }, []); // masyvas tuščias, nes Front'e nieks nieko neupdate'ins;
 
+  // CREATE COMMENT
+  useEffect(() => {
+    if (null === createComment) return;
+    axios.post("http://localhost:3003/front/comments", createComment).then((_) => {
+      // setLastUpdate(Date.now());
+    });
+  }, [createComment]); // pasikeičia createComment po mygtuko paspaudimo ir komentaras išsiunčiamas į serverį;
+
   return (
     <FrontContext.Provider
       value={{
         colors, // info patenka į providerį;
         scooters,
+        setCreateComment // paduodam per provider į Scooter.jsx
       }}
     >
-      <Nav></Nav>
+      <Nav/>
       <div className="container">
         <div className="row">
           <div className="col-left">

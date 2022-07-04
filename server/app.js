@@ -86,10 +86,13 @@ app.get("/front/kolts", (req, res) => {
   // get - routeris, paimam info is serverio;
   const sql = `
     SELECT
-    k.id, k.regCode, c.color, isBusy, lastTimeUsed, totalRideKilometres
+    k.id, k.regCode, c.color, isBusy, lastTimeUsed, totalRideKilometres, GROUP_CONCAT(com.comment,  '-^o^-') AS comments
     FROM kolts AS k
     LEFT JOIN colors AS c
     ON k.color_id = c.id
+    LEFT JOIN comments AS com
+    ON com.kolt_id = k.id
+    GROUP BY k.id
     `;
   con.query(sql, (err, result) => {
     if (err) throw err;
@@ -135,6 +138,22 @@ app.post("/colors", (req, res) => {
     res.send({
       result,
       msg: { text: "Color has been created!", type: "success" },
+    }); // gaunamas ats iš serverio;
+  });
+});
+
+//CREATE COMMENT
+app.post("/front/comments", (req, res) => {
+  const sql = `
+    INSERT INTO comments
+    (comment, kolt_id)
+    VALUES (?, ?)
+        `;
+  con.query(sql, [req.body.comment, req.body.scooterId], (err, result) => {
+    if (err) throw err;
+    res.send({
+      result,
+      msg: { text: "Comment has been created!", type: "success" },
     }); // gaunamas ats iš serverio;
   });
 });

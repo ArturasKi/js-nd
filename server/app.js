@@ -33,16 +33,25 @@ app.get("/kolts", (req, res) => {
   // get - routeris, paimam info is serverio;
   const sql = `
     SELECT
-    k.id, k.regCode, c.color, isBusy, lastTimeUsed, totalRideKilometres
+    k.id, k.regCode, c.color, isBusy, lastTimeUsed, totalRideKilometres, GROUP_CONCAT(com.comment, '-^o^-') AS comments
     FROM kolts AS k
     LEFT JOIN colors AS c
     ON k.color_id = c.id
+    LEFT JOIN comments AS com
+    ON com.kolt_id = k.id
+    GROUP BY k.id
     `;
   con.query(sql, (err, result) => {
     if (err) throw err;
     res.send(result);
   });
 });
+
+    // SELECT
+    // k.id, k.regCode, c.color, isBusy, lastTimeUsed, totalRideKilometres
+    // FROM kolts AS k
+    // LEFT JOIN colors AS c
+    // ON k.color_id = c.id
 
 //READ COLOR in BACK
 app.get("/colors", (req, res) => {

@@ -51,9 +51,9 @@ function Scooter({ scooter, color }) {
               Add comment
             </button>
           </div>
-        <ul>
+        <ul className="comment-list">
             {
-            scooter.comments ? scooter.comments?.slice(0, -5).split('-^o^-,').map((c, i) => <li key={i}>{c}</li>) : null
+            scooter.comments ? scooter.comments?.slice(0, -5).split('-^o^-,').map((c, i) => <li className="comment" key={i}>{c}</li>) : null
             }
         </ul>
         </div>

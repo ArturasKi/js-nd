@@ -53,7 +53,7 @@ function Front() {
           <div className="col">
             <FrontList />
           </div>
-          <div className="col-right">
+          <div className="col-left">
             <ScooterList />
           </div>
         </div>

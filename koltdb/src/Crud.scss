@@ -6,12 +6,12 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  // background-color: #282c34;
+  background-color: burlywood;
   min-height: 100vh;
-  background-image: url(../public/electric-scooter.jpg);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+  // background-image: url(../public/electric-scooter.jpg);
+  // background-repeat: no-repeat;
+  // background-position: center;
+  // background-size: cover;
 }
 
 .content-front {
@@ -70,6 +70,7 @@
   // border: 1px solid black;
   opacity: 0.9;
   border: 1px solid #282c34;
+  
   
 }
 
@@ -160,7 +161,7 @@ small {
           justify-content: flex-start;
           flex-wrap: wrap;
           font-size: 14px;
-          width: 100%;
+          // width: 100%;
       };
       .buttons {
           display: flex;
@@ -200,11 +201,6 @@ small {
           margin-right: 15px;
       }
   }
-}
-
-textarea {
-  width: 100%;
-  resize: none;
 }
 
 .modal {
@@ -356,7 +352,7 @@ input {
 .show-message {
   display: flex;
   position: fixed;
-  top: 50px;
+  top: 100px;
   right: 35px;
   width: 100%;
   justify-content: flex-end;
@@ -417,22 +413,33 @@ h4 {
 }
 
 .textarea-input {
+  width: 100%;
   border-radius: 5px;
   height: 80px;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin: 5px 10px 10px 10px;
   padding: 10px;
-  width: 100%;
+  resize: none;
 }
 
 .textarea-label {
   display: flex;
   flex-direction: column;
-  width: 100%;
   margin-top: 20px;
   margin-bottom: 10px;
   margin-left: 10px;
   // text-transform: uppercase;
   font-size: 12px;
   color: #fff;
+}
+
+.comment-list {
+  width: 100%;
+  margin: 5px 0 15px 0;
+}
+
+.comment {
+  margin-top: 10px;
+  font-style: italic;
+  width: 100%;
+  color: #FF4742;
 }

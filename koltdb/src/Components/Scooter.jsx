@@ -50,6 +50,14 @@ function Scooter({ scooter, color }) {
           </button>
         </div>
       </div>
+      <ul className="comment-list">
+        {
+          scooter.comments ? scooter.comments?.slice(0, -5).split('-^o^-,').map((c, i) => 
+          <li className="comment" key={i}>{c}<button className="button" onClick={handleDelete}>Delete</button></li>
+          
+          ) : null
+        }
+      </ul>
     </li>
   );
 }

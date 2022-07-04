@@ -14,6 +14,11 @@
   background-size: cover;
 }
 
+.content-front {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .row {
   width: 100%;
   display: flex;
@@ -155,6 +160,7 @@ small {
           justify-content: flex-start;
           flex-wrap: wrap;
           font-size: 14px;
+          width: 100%;
       };
       .buttons {
           display: flex;
@@ -416,6 +422,7 @@ h4 {
   margin-left: 10px;
   margin-right: 10px;
   padding: 10px;
+  width: 100%;
 }
 
 .textarea-label {
@@ -429,4 +436,3 @@ h4 {
   font-size: 12px;
   color: #fff;
 }
-

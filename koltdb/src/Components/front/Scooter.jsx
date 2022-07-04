@@ -28,14 +28,14 @@ function Scooter({ scooter, color }) {
           <span>
             Availability: <b></b>
           </span>
-          <span
+          <div
             className="aps"
             style={
               scooter.isBusy
                 ? { backgroundColor: "#FF0000", marginLeft: "-15px" }
                 : { backgroundColor: "#00FF21", marginLeft: "-15px" }
             }
-          ></span>
+          ></div>
           <span>Last Use Time: <i><b>{scooter.lastTimeUsed}</b></i></span>
           <span>
             Total Ride Kilometers: <i><b>{scooter.totalRideKilometres.toFixed(2)}</b></i>km
@@ -51,11 +51,11 @@ function Scooter({ scooter, color }) {
               Add comment
             </button>
           </div>
-          <div>
+        <ul>
             {
-            scooter.comment ? scooter.comment?.slice(0, -5).split( '-^o^-,').map((c, i) => <li key={i}>{comment}</li>) : null
+            scooter.comments ? scooter.comments?.slice(0, -5).split('-^o^-,').map((c, i) => <li key={i}>{c}</li>) : null
             }
-          </div>
+        </ul>
         </div>
         
       </div>

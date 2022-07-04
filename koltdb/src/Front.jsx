@@ -50,10 +50,10 @@ function Front() {
       <Nav/>
       <div className="container">
         <div className="row">
-          <div className="col-left">
+          <div className="col">
             <FrontList />
           </div>
-          <div className="col-left">
+          <div className="col-right">
             <ScooterList />
           </div>
         </div>

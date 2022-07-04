@@ -86,7 +86,7 @@ app.get("/front/kolts", (req, res) => {
   // get - routeris, paimam info is serverio;
   const sql = `
     SELECT
-    k.id, k.regCode, c.color, isBusy, lastTimeUsed, totalRideKilometres, GROUP_CONCAT(com.comment,  '-^o^-') AS comments
+    k.id, k.regCode, c.color, isBusy, lastTimeUsed, totalRideKilometres, GROUP_CONCAT(com.comment, '-^o^-') AS comments
     FROM kolts AS k
     LEFT JOIN colors AS c
     ON k.color_id = c.id

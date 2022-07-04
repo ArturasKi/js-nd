@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import FrontContext from "./Components/front/FrontContext";
 import FrontList from "./Components/front/List";
 import ScooterList from "./Components/front/ScooterList";
+import Nav from './Components/Nav';
 
 function Front() {
   const [colors, setColors] = useState(null);
@@ -36,6 +37,7 @@ function Front() {
         scooters,
       }}
     >
+      <Nav></Nav>
       <div className="container">
         <div className="row">
           <div className="col-left">

@@ -8,6 +8,7 @@ import ScooterContext from "./Components/ScooterContext";
 import Message from "./Components/Message";
 import axios from "axios";
 import ColorContext from "./Components/colors/ColorContext";
+import Nav from './Components/Nav';
 
 import CreateColors from "./Components/colors/Create";
 import ListColors from "./Components/colors/List";
@@ -146,6 +147,7 @@ function Back() {
           setDeleteData: setDeleteDataColors
         }}
       >
+        <Nav></Nav>
         <div className="container">
           <div className="row">
             <div className="col-left">

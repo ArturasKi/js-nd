@@ -1,9 +1,9 @@
 import { useContext } from "react";
 import ScooterContext from "./ScooterContext";
 
-function Scooter({ scooter, color }) {
+function Scooter({ scooter }) {
 
-  const {setDeleteData, setModalData} = useContext(ScooterContext);
+  const {setDeleteData, setModalData, handleDeleteComment} = useContext(ScooterContext);
 
   const handleDelete = () => {
     setDeleteData(scooter);
@@ -50,12 +50,16 @@ function Scooter({ scooter, color }) {
           </button>
         </div>
       </div>
-      <ul className="comment-list">
+      <ul className="comment-list list-group">
         {
-          scooter.comments ? scooter.comments?.slice(0, -5).split('-^o^-,').map((c, i) => 
-          <li className="comment" key={i}>{c}<button className="button" onClick={handleDelete}>Delete</button></li>
+          scooter.comments ? scooter.comments?.slice(0, -5).split('-^o^-,').map((c, i) => (
+
+          <li className="list-group-item" key={i}>
+            <div className="comment">{c} {scooter.comments_id.split(',')[i]}</div>
+            <button className="button" onClick={() => handleDeleteComment(scooter.comments_id.split(',')[i])}>Delete</button>
+          </li>
           
-          ) : null
+          )) : null
         }
       </ul>
     </li>

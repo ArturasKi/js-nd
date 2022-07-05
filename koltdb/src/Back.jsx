@@ -33,14 +33,14 @@ function Back() {
 
   // S C O O T E R S //
 
-  // READ
+  // READ SCOOTER
   useEffect(() => {
     axios
       .get("http://localhost:3003/kolts")
       .then((res) => setScooters(res.data));
   }, [lastUpdate]);
 
-  // CREATE
+  // CREATE SCOOTER
   useEffect(() => {
     if (null === createData) return;
     axios
@@ -55,7 +55,7 @@ function Back() {
       });
   }, [createData]);
 
-  // DELETE
+  // DELETE SCOOTER
   useEffect(() => {
     if (null === deleteData) return;
     axios.delete("http://localhost:3003/kolts/" + deleteData.id).then((res) => {
@@ -65,7 +65,7 @@ function Back() {
     });
   }, [deleteData]);
 
-  // EDIT
+  // EDIT SCOOTER
   useEffect(() => {
     if (null === editData) return;
     axios
@@ -79,7 +79,7 @@ function Back() {
 
   // C O L O R S //
 
-  // CREATE
+  // CREATE COLOR
   useEffect(() => {
     if (null === createDataColors) return;
     axios.post("http://localhost:3003/colors", createDataColors).then((_) => {
@@ -87,7 +87,7 @@ function Back() {
     });
   }, [createDataColors]);
 
-  // READ
+  // READ COLOR
   useEffect(() => {
     axios.get("http://localhost:3003/colors").then((res) => {
       console.log(res.data);
@@ -95,7 +95,7 @@ function Back() {
     });
   }, [lastUpdate]);
 
-  // DELETE
+  // DELETE COLOR
   useEffect(() => {
     if (null === deleteDataColors) return;
     axios
@@ -106,6 +106,18 @@ function Back() {
         console.log("Deleted!");
       });
   }, [deleteDataColors]);
+
+
+  // DELETE COMMENT
+  const handleDeleteComment = id => {
+    axios
+      .delete("http://localhost:3003/comments/" + id)
+      .then((res) => {
+        showMessage(res.data.msg);
+        setLastUpdate(Date.now());
+        console.log("Deleted!");
+      });
+  }
 
   const showMessage = (msg) => {
     setMessage(msg); // set'inam msg, kad pasirodytų;
@@ -137,7 +149,8 @@ function Back() {
         sortScooters,
         setSortScooters,
         setColors,
-        colors
+        colors,
+        handleDeleteComment
       }}
     >
       <ColorContext.Provider

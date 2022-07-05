@@ -33,7 +33,7 @@ app.get("/kolts", (req, res) => {
   // get - routeris, paimam info is serverio;
   const sql = `
     SELECT
-    k.id, k.regCode, c.color, isBusy, lastTimeUsed, totalRideKilometres, GROUP_CONCAT(com.comment, '-^o^-') AS comments
+    k.id, k.regCode, c.color, isBusy, lastTimeUsed, totalRideKilometres, GROUP_CONCAT(com.comment, '-^o^-') AS comments, GROUP_CONCAT(com.id) AS comments_id
     FROM kolts AS k
     LEFT JOIN colors AS c
     ON k.color_id = c.id
@@ -193,6 +193,21 @@ app.delete("/colors/:colorId", (req, res) => {
     res.send({
       result,
       msg: { text: "Color has been deleted!", type: "success" },
+    });
+  });
+});
+
+//DELETE COMMENT
+app.delete("/comments/:commentId", (req, res) => {
+  const sql = `
+  DELETE FROM comments
+  WHERE id = ?
+  `;
+  con.query(sql, [req.params.commentId], (err, result) => {
+    if (err) throw err;
+    res.send({
+      result,
+      msg: { text: "Comment has been deleted!", type: "success" },
     });
   });
 });

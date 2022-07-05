@@ -2,17 +2,26 @@ import { useState } from "react";
 import { useContext } from "react";
 import FrontContext from "./FrontContext";
 
-function Scooter({ scooter, color }) {
+function Scooter({ scooter }) {
 
-  const {setCreateComment} = useContext(FrontContext);
+  const {setCreateComment, setRateNow} = useContext(FrontContext);
 
   const [comment, setComment] = useState('');
+  const [rate, setRate] = useState('5');
 
   const handleComment = () => {
     setCreateComment({comment, scooterId: scooter.id}); 
     // kai paspaudžiamas mygtukas 'comment' nukeliauja į front, useEffect'e pasikeičia createComment;
     // taip pat perduodamas scooterId: scooter.id, kad žinotume, kokiam paspirtukui komentaras priklauso;
     setComment(''); // kai išsiunčiam komentarą - panaikinam textarea komentaro tekstą;
+  }
+
+  const rateIt = e => {
+    setRate(e.target.value);
+    setRateNow({
+      rate: parseInt(e.target.value),
+      id: scooter.id
+    });
   }
 
   return (
@@ -42,22 +51,40 @@ function Scooter({ scooter, color }) {
           </span>
           <span>Color:</span>
           <span className="kv" style={{backgroundColor: scooter.color}}></span>
+          <span>
+            {
+              scooter.rate_sum ? 'Rate: ' + (scooter.rate_sum / scooter.rates).toFixed(2) : 'No rates yet'
+            }
+          </span>
+        </div>
+        <div>
+          <label className="comment">Rate it: </label> 
+          <select value={rate} onChange={e => setRate(e.target.value)}>
+            {
+              [...Array(10)].map((_, i) => <option key={i} value={10 - i}>{10 - i}</option>)
+            }
+          </select>
+          <button className="button" value={rate} onClick={rateIt}>
+            Vote
+          </button>
         </div>
         <div className="content">
-          <label className="textarea-label">Enter your comment here</label>
-          <textarea className="textarea-input" value={comment} onChange={e => setComment(e.target.value)}></textarea>
-          <div className="buttons">
-            <button className="button" onClick={handleComment}>
-              Add comment
-            </button>
-          </div>
-        <ul className="comment-list">
+          <ul>
             {
-            scooter.comments ? scooter.comments?.slice(0, -5).split('-^o^-,').map((c, i) => <li className="comment" key={i}>{c}</li>) : null
+              scooter.comments ? scooter.comments?.slice(0, -5).split('-^o^-,').map((c, i) => 
+              <li key={i}>
+                <div className="comment">{c}</div>
+              </li>) : null
             }
-        </ul>
+          </ul>
+          <label className="textarea-label">Enter your comment here</label>
+            <textarea className="textarea-input" value={comment} onChange={e => setComment(e.target.value)}></textarea>
+            <div className="buttons">
+              <button className="button" onClick={handleComment}>
+                Add comment
+              </button>
+            </div>
         </div>
-        
       </div>
     </li>
   );

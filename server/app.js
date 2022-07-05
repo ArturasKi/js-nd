@@ -95,7 +95,7 @@ app.get("/front/kolts", (req, res) => {
   // get - routeris, paimam info is serverio;
   const sql = `
     SELECT
-    k.id, k.regCode, c.color, isBusy, lastTimeUsed, totalRideKilometres, GROUP_CONCAT(com.comment, '-^o^-') AS comments
+    k.id, k.regCode, c.color, isBusy, lastTimeUsed, totalRideKilometres, GROUP_CONCAT(com.comment, '-^o^-') AS comments, k.rates, k.rate_sum
     FROM kolts AS k
     LEFT JOIN colors AS c
     ON k.color_id = c.id
@@ -233,6 +233,29 @@ app.put("/kolts/:scooterId", (req, res) => {
       res.send({
         result,
         msg: { text: "Scooter has been edited!", type: "success" },
+      });
+    }
+  );
+});
+
+//EDIT RATE
+app.put("/front/rate/:scooterId", (req, res) => {
+  const sql = `
+  UPDATE kolts
+  SET rates = rates + 1, rate_sum = rate_sum + ?
+  WHERE id = ?
+  `;
+  con.query(
+    sql,
+    [
+      req.body.rate,
+      req.params.scooterId,
+    ],
+    (err, result) => {
+      if (err) throw err;
+      res.send({
+        result,
+        msg: { text: "Thank you for your vote!", type: "success" },
       });
     }
   );

@@ -10,6 +10,9 @@ function Front() {
   const [colors, setColors] = useState(null);
   const [scooters, setScooters] = useState(null);
   const [createComment, setCreateComment] = useState(null);
+  const [lastUpdate, setLastUpdate] = useState(Date.now());
+
+  const [rateNow, setRateNow] = useState(null);
 
   // READ COLORS
   useEffect(() => {
@@ -19,7 +22,7 @@ function Front() {
         console.log(res.data);
         setColors(res.data); // paset'inama info;
       });
-  }, []); // masyvas tuščias, nes Front'e nieks nieko neupdate'ins;
+  }, [lastUpdate]); // masyvas tuščias, nes Front'e nieks nieko neupdate'ins;
 
   // READ SCOOTERS
   useEffect(() => {
@@ -29,28 +32,37 @@ function Front() {
         console.log(res.data);
         setScooters(res.data); // paset'inama info;
       });
-  }, []); // masyvas tuščias, nes Front'e nieks nieko neupdate'ins;
+  }, [lastUpdate]); // masyvas tuščias, nes Front'e nieks nieko neupdate'ins;
 
   // CREATE COMMENT
   useEffect(() => {
     if (null === createComment) return;
     axios.post("http://localhost:3003/front/comments", createComment).then((_) => {
-      // setLastUpdate(Date.now());
+      setLastUpdate(Date.now());
     });
   }, [createComment]); // pasikeičia createComment po mygtuko paspaudimo ir komentaras išsiunčiamas į serverį;
+
+    // CREATE RATE
+    useEffect(() => {
+      if (null === rateNow) return;
+      axios.put("http://localhost:3003/front/rate/" + rateNow.id, rateNow).then((_) => { // siunčiame rateNow ir rateNow.id (kurį paspirtuką norime subalsuoti)
+        setLastUpdate(Date.now());
+      });
+    }, [rateNow]); // pasikeičia createComment po mygtuko paspaudimo ir komentaras išsiunčiamas į serverį;
 
   return (
     <FrontContext.Provider
       value={{
         colors, // info patenka į providerį;
         scooters,
-        setCreateComment // paduodam per provider į Scooter.jsx
+        setCreateComment, // paduodam per provider į Scooter.jsx
+        setRateNow
       }}
     >
       <Nav/>
       <div className="container">
         <div className="row">
-          <div className="col">
+          <div className="col-left">
             <FrontList />
           </div>
           <div className="col-left">

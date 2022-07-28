@@ -368,3 +368,68 @@ function squareOrSquareRoot(array) {
 // console.log(sameCase('C', 'T'));
 // console.log(sameCase('c', 'A'));
 // console.log(sameCase('G', 'a'));
+
+// Persistent Bugger 6kyu
+
+function persistence(num) {
+  let count = 0;
+  while(num.toString().length > 1){
+    num = num.toString().split('').reduce((acc,el)=>acc *= +el,1)
+    count++
+  }
+  return count
+}
+
+console.log(persistence(999));
+
+// Get the Middle Character 7kyu
+
+function getMiddle(s) {
+  if (s.length % 2 === 0) {
+    return s.substring((s.length / 2) - 1, s.length / 2 + 1);
+  } else return s.substring((s.length / 2) - 0.5, s.length / 2 + 0.5);
+}
+
+console.log(getMiddle('Arturas'));
+console.log(getMiddle('ArturasK'));
+
+// How much water do I need? 8kyu
+
+function howMuchWater(water, load, clothes) {
+
+  if (clothes > load * 2) {
+    return `Too much clothes`
+  }
+  if (clothes < load) {
+    return `Not enough clothes`
+  } else return water * (1.1**(clothes - load)).toFixed(2);
+}
+
+
+console.log(howMuchWater(5, 10, 21));
+console.log(howMuchWater(5, 12, 8));
+console.log(howMuchWater(10, 10, 20));
+console.log(howMuchWater(50,15,29));
+
+// Help the Fruit Guy 7kyu
+
+// function removeRotten(bagOfFruits) {
+//   if (!bagOfFruits) {
+//     return [];
+//   } else
+//     for (let i = 0; i < bagOfFruits.length - 1; i++) {
+//       if (bagOfFruits[i].includes('rotten')) {
+//         bagOfFruits[i] = bagOfFruits[i].slice(6).toLowerCase();
+//         return bagOfFruits;
+//       } 
+//     } return bagOfFruits;
+//   } 
+
+function removeRotten(bag){
+    return bag ? bag.map(x => x.toLowerCase().replace(/rotten/ig,"")) : [];
+}
+
+console.log(removeRotten(['apple', 'orange', 'rottenBanana', 'kiwi']))
+console.log(removeRotten(['rottenApple', 'rottenOrange', 'rottenBanana', 'rottenKiwi']))
+console.log(removeRotten(["apple", "banana", "kiwi", "melone", "orange"]))
+console.log(removeRotten([]))

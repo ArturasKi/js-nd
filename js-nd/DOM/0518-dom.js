@@ -167,3 +167,9 @@ analogišką Html tagų struktūrą kaip ir HEADER 1 ir HEADER 2. Pirmas mygtuka
 vadintųsi, “Pabraukti H1 tagą”, o antras “Nepabraukti H1 tagą”. Mygtukai turi
 daryti tai kas ant jų parašyta */
 
+
+// DOM.addEventListener('click', (e) => {   
+//     e.preventDefault();  padaro, kad po paspaudimo nesirefreshintu narsykle;
+// })
+
+
